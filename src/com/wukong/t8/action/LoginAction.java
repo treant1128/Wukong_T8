@@ -205,8 +205,10 @@ public class LoginAction extends ActionSupport implements SessionAware, BaseActi
 				logger.info(nickname+"--距上次登录间隔"+interval+"毫秒,"
 //						+TIME_DELAY+"毫秒后开始下一次抓取"
 						);
-				Opml4channelAction.timer.cancel();
-				Opml4channelAction.timer=null;
+				if(Opml4channelAction.timer!=null){
+					Opml4channelAction.timer.cancel();
+					Opml4channelAction.timer=null;
+				}
 			}
 			
 			new Timer().schedule(new TimerTask(){
