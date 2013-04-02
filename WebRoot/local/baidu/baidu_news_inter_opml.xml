@@ -1,0 +1,12 @@
+<opml version="1.0">
+<head>
+<title>百度最新新闻-RSS</title>
+</head>
+<body>
+<outline title="国际最新-百度RSS" text="国际最新-百度RSS">
+<outline text="国际最新" title="国际最新" type="rss" xmlUrl="http://news.baidu.com/n?cmd=4&amp;class=internews&amp;tn=rss" htmlUrl="www.baidu.com"/>
+<outline text="环球视野最新" title="环球视野最新" type="rss" xmlUrl="http://news.baidu.com/n?cmd=4&amp;class=hqsy&amp;tn=rss" htmlUrl="www.baidu.com"/>
+<outline text="国际人物最新" title="国际人物最新" type="rss" xmlUrl="http://news.baidu.com/n?cmd=4&amp;class=renwu&amp;tn=rss" htmlUrl="www.baidu.com"/>
+</outline>
+</body>
+</opml>

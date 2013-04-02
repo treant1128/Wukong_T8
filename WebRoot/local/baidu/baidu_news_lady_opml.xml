@@ -1,0 +1,22 @@
+<opml version="1.0">
+<head>
+<title>百度最新新闻-RSS</title>
+</head>
+<body>
+<outline title="女人最新-百度RSS" text="女人最新-百度RSS">
+<outline text="女人最新" title="女人最新" type="rss" xmlUrl="http://news.baidu.com/n?cmd=4&amp;class=healthnews&amp;tn=rss" htmlUrl="www.baidu.com"/>
+<outline text="潮流服饰最新" title="潮流服饰最新" type="rss" xmlUrl="http://news.baidu.com/n?cmd=4&amp;class=chaoliufs&amp;tn=rss" htmlUrl="www.baidu.com"/>
+<outline text="女性职场最新" title="女性职场最新" type="rss" xmlUrl="http://news.baidu.com/n?cmd=4&amp;class=nvrentx&amp;tn=rss" htmlUrl="www.baidu.com"/>
+<outline text="型男时尚最新" title="型男时尚最新" type="rss" xmlUrl="http://news.baidu.com/n?cmd=4&amp;class=xingnanss&amp;tn=rss" htmlUrl="www.baidu.com"/>
+<outline text="美容护肤最新" title="美容护肤最新" type="rss" xmlUrl="http://news.baidu.com/n?cmd=4&amp;class=meironghf&amp;tn=rss" htmlUrl="www.baidu.com"/>
+<outline text="亲子母婴最新" title="亲子母婴最新" type="rss" xmlUrl="http://news.baidu.com/n?cmd=4&amp;class=qinzimy&amp;tn=rss" htmlUrl="www.baidu.com"/>
+<outline text="婚嫁新人最新" title="婚嫁新人最新" type="rss" xmlUrl="http://news.baidu.com/n?cmd=4&amp;class=hunjia&amp;tn=rss" htmlUrl="www.baidu.com"/>
+<outline text="减肥健身最新" title="减肥健身最新" type="rss" xmlUrl="http://news.baidu.com/n?cmd=4&amp;class=jianfei&amp;tn=rss" htmlUrl="www.baidu.com"/>
+<outline text="情感两性最新" title="情感两性最新" type="rss" xmlUrl="http://news.baidu.com/n?cmd=4&amp;class=qinggan&amp;tn=rss" htmlUrl="www.baidu.com"/>
+<outline text="星座最新" title="星座最新" type="rss" xmlUrl="http://news.baidu.com/n?cmd=4&amp;class=xingzuo&amp;tn=rss" htmlUrl="www.baidu.com"/>
+<outline text="健康养生最新" title="健康养生最新" type="rss" xmlUrl="http://news.baidu.com/n?cmd=4&amp;class=jiankang&amp;tn=rss" htmlUrl="www.baidu.com"/>
+<outline text="美食健康最新" title="美食健康最新" type="rss" xmlUrl="http://news.baidu.com/n?cmd=4&amp;class=meishijk&amp;tn=rss" htmlUrl="www.baidu.com"/>
+<outline text="保健养生最新" title="保健养生最新" type="rss" xmlUrl="http://news.baidu.com/n?cmd=4&amp;class=baojian&amp;tn=rss" htmlUrl="www.baidu.com"/>
+</outline>
+</body>
+</opml>

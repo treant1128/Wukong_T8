@@ -1,0 +1,15 @@
+<opml version="1.0">
+<head>
+<title>百度最新新闻-RSS</title>
+</head>
+<body>
+<outline title="互联网最新-百度RSS" text="互联网最新-百度RSS">
+<outline text="互联网最新" title="互联网最新" type="rss" xmlUrl="http://news.baidu.com/n?cmd=4&amp;class=internet&amp;tn=rss" htmlUrl="www.baidu.com"/>
+<outline text="人物动态最新" title="人物动态最新" type="rss" xmlUrl="http://news.baidu.com/n?cmd=4&amp;class=rwdt&amp;tn=rss" htmlUrl="www.baidu.com"/>
+<outline text="公司动态最新" title="公司动态最新" type="rss" xmlUrl="http://news.baidu.com/n?cmd=4&amp;class=gsdt&amp;tn=rss" htmlUrl="www.baidu.com"/>
+<outline text="搜索引擎最新" title="搜索引擎最新" type="rss" xmlUrl="http://news.baidu.com/n?cmd=4&amp;class=search_engine&amp;tn=rss" htmlUrl="www.baidu.com"/>
+<outline text="电子商务最新" title="电子商务最新" type="rss" xmlUrl="http://news.baidu.com/n?cmd=4&amp;class=e_commerce&amp;tn=rss" htmlUrl="www.baidu.com"/>
+<outline text="网络游戏最新" title="网络游戏最新" type="rss" xmlUrl="http://news.baidu.com/n?cmd=4&amp;class=online_game&amp;tn=rss" htmlUrl="www.baidu.com"/>
+</outline>
+</body>
+</opml>

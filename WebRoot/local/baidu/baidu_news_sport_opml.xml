@@ -1,0 +1,45 @@
+<opml version="1.0">
+<head>
+<title>百度最新新闻-RSS</title>
+</head>
+<body>
+<outline title="体育最新-百度RSS" text="体育最新-百度RSS">
+<outline text="体育最新" title="体育最新" type="rss" xmlUrl="http://news.baidu.com/n?cmd=4&amp;class=sportnews&amp;tn=rss" htmlUrl="www.baidu.com"/>
+<outline text="NBA最新" title="NBA最新" type="rss" xmlUrl="http://news.baidu.com/n?cmd=4&amp;class=nba&amp;tn=rss" htmlUrl="www.baidu.com"/>
+<outline text="易建联-篮网最新" title="易建联-篮网最新" type="rss" xmlUrl="http://news.baidu.com/n?cmd=4&amp;class=yijianlian&amp;tn=rss" htmlUrl="www.baidu.com"/>
+<outline text="国际足球最新" title="国际足球最新" type="rss" xmlUrl="http://news.baidu.com/n?cmd=4&amp;class=worldsoccer&amp;tn=rss" htmlUrl="www.baidu.com"/>
+<outline text="英超最新" title="英超最新" type="rss" xmlUrl="http://news.baidu.com/n?cmd=4&amp;class=Yingchao&amp;tn=rss" htmlUrl="www.baidu.com"/>
+<outline text="意甲最新" title="意甲最新" type="rss" xmlUrl="http://news.baidu.com/n?cmd=4&amp;class=Yijia&amp;tn=rss" htmlUrl="www.baidu.com"/>
+<outline text="西甲最新" title="西甲最新" type="rss" xmlUrl="http://news.baidu.com/n?cmd=4&amp;class=Xijia&amp;tn=rss" htmlUrl="www.baidu.com"/>
+<outline text="足球明星最新" title="足球明星最新" type="rss" xmlUrl="http://news.baidu.com/n?cmd=4&amp;class=Zq_star&amp;tn=rss" htmlUrl="www.baidu.com"/>
+<outline text="曼联最新" title="曼联最新" type="rss" xmlUrl="http://news.baidu.com/n?cmd=4&amp;class=Manutd&amp;tn=rss" htmlUrl="www.baidu.com"/>
+<outline text="阿森纳最新" title="阿森纳最新" type="rss" xmlUrl="http://news.baidu.com/n?cmd=4&amp;class=Arsenal&amp;tn=rss" htmlUrl="www.baidu.com"/>
+<outline text="切尔西最新" title="切尔西最新" type="rss" xmlUrl="http://news.baidu.com/n?cmd=4&amp;class=Chelsea&amp;tn=rss" htmlUrl="www.baidu.com"/>
+<outline text="利物浦最新" title="利物浦最新" type="rss" xmlUrl="http://news.baidu.com/n?cmd=4&amp;class=Liverpool&amp;tn=rss" htmlUrl="www.baidu.com"/>
+<outline text="AC米兰最新" title="AC米兰最新" type="rss" xmlUrl="http://news.baidu.com/n?cmd=4&amp;class=ACMilan&amp;tn=rss" htmlUrl="www.baidu.com"/>
+<outline text="国际米兰最新" title="国际米兰最新" type="rss" xmlUrl="http://news.baidu.com/n?cmd=4&amp;class=InterMilan&amp;tn=rss" htmlUrl="www.baidu.com"/>
+<outline text="尤文图斯最新" title="尤文图斯最新" type="rss" xmlUrl="http://news.baidu.com/n?cmd=4&amp;class=Juventus&amp;tn=rss" htmlUrl="www.baidu.com"/>
+<outline text="皇马最新" title="皇马最新" type="rss" xmlUrl="http://news.baidu.com/n?cmd=4&amp;class=RealMadrid&amp;tn=rss" htmlUrl="www.baidu.com"/>
+<outline text="巴塞罗那最新" title="巴塞罗那最新" type="rss" xmlUrl="http://news.baidu.com/n?cmd=4&amp;class=Barcelona&amp;tn=rss" htmlUrl="www.baidu.com"/>
+<outline text="拜仁最新" title="拜仁最新" type="rss" xmlUrl="http://news.baidu.com/n?cmd=4&amp;class=Bayen&amp;tn=rss" htmlUrl="www.baidu.com"/>
+<outline text="国内足球最新" title="国内足球最新" type="rss" xmlUrl="http://news.baidu.com/n?cmd=4&amp;class=chinasoccer&amp;tn=rss" htmlUrl="www.baidu.com"/>
+<outline text="男足最新" title="男足最新" type="rss" xmlUrl="http://news.baidu.com/n?cmd=4&amp;class=nanzu&amp;tn=rss" htmlUrl="www.baidu.com"/>
+<outline text="女足最新" title="女足最新" type="rss" xmlUrl="http://news.baidu.com/n?cmd=4&amp;class=nvzu&amp;tn=rss" htmlUrl="www.baidu.com"/>
+<outline text="中超最新" title="中超最新" type="rss" xmlUrl="http://news.baidu.com/n?cmd=4&amp;class=zhongchao&amp;tn=rss" htmlUrl="www.baidu.com"/>
+<outline text="球迷最新" title="球迷最新" type="rss" xmlUrl="http://news.baidu.com/n?cmd=4&amp;class=cn_qiumi&amp;tn=rss" htmlUrl="www.baidu.com"/>
+<outline text="CBA最新" title="CBA最新" type="rss" xmlUrl="http://news.baidu.com/n?cmd=4&amp;class=cba&amp;tn=rss" htmlUrl="www.baidu.com"/>
+<outline text="赛事最新" title="赛事最新" type="rss" xmlUrl="http://news.baidu.com/n?cmd=4&amp;class=cba_match&amp;tn=rss" htmlUrl="www.baidu.com"/>
+<outline text="综合体育最新" title="综合体育最新" type="rss" xmlUrl="http://news.baidu.com/n?cmd=4&amp;class=othersports&amp;tn=rss" htmlUrl="www.baidu.com"/>
+<outline text="排球最新" title="排球最新" type="rss" xmlUrl="http://news.baidu.com/n?cmd=4&amp;class=volleyball&amp;tn=rss" htmlUrl="www.baidu.com"/>
+<outline text="乒乓球最新" title="乒乓球最新" type="rss" xmlUrl="http://news.baidu.com/n?cmd=4&amp;class=table-tennis&amp;tn=rss" htmlUrl="www.baidu.com"/>
+<outline text="羽毛球最新" title="羽毛球最新" type="rss" xmlUrl="http://news.baidu.com/n?cmd=4&amp;class=badminton&amp;tn=rss" htmlUrl="www.baidu.com"/>
+<outline text="田径最新" title="田径最新" type="rss" xmlUrl="http://news.baidu.com/n?cmd=4&amp;class=Athletics&amp;tn=rss" htmlUrl="www.baidu.com"/>
+<outline text="游泳最新" title="游泳最新" type="rss" xmlUrl="http://news.baidu.com/n?cmd=4&amp;class=swimming&amp;tn=rss" htmlUrl="www.baidu.com"/>
+<outline text="体操最新" title="体操最新" type="rss" xmlUrl="http://news.baidu.com/n?cmd=4&amp;class=Gymnastics&amp;tn=rss" htmlUrl="www.baidu.com"/>
+<outline text="网球最新" title="网球最新" type="rss" xmlUrl="http://news.baidu.com/n?cmd=4&amp;class=volleyball&amp;tn=rss" htmlUrl="www.baidu.com"/>
+<outline text="赛车最新" title="赛车最新" type="rss" xmlUrl="http://news.baidu.com/n?cmd=4&amp;class=F1&amp;tn=rss" htmlUrl="www.baidu.com"/>
+<outline text="拳击最新" title="拳击最新" type="rss" xmlUrl="http://news.baidu.com/n?cmd=4&amp;class=boxing&amp;tn=rss" htmlUrl="www.baidu.com"/>
+<outline text="台球最新" title="台球最新" type="rss" xmlUrl="http://news.baidu.com/n?cmd=4&amp;class=billiards&amp;tn=rss" htmlUrl="www.baidu.com"/>
+</outline>
+</body>
+</opml>

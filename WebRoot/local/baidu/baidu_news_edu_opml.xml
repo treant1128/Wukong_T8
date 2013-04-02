@@ -1,0 +1,18 @@
+<opml version="1.0">
+<head>
+<title>百度最新新闻-RSS</title>
+</head>
+<body>
+<outline title="教育最新-百度RSS" text="教育最新-百度RSS">
+<outline text="教育最新" title="教育最新" type="rss" xmlUrl="http://news.baidu.com/n?cmd=4&amp;class=edunews&amp;tn=rss" htmlUrl="www.baidu.com"/>
+<outline text="考试最新" title="考试最新" type="rss" xmlUrl="http://news.baidu.com/n?cmd=4&amp;class=exams&amp;tn=rss" htmlUrl="www.baidu.com"/>
+<outline text="中考最新" title="中考最新" type="rss" xmlUrl="http://news.baidu.com/n?cmd=4&amp;class=zhongkao&amp;tn=rss" htmlUrl="www.baidu.com"/>
+<outline text="高考最新" title="高考最新" type="rss" xmlUrl="http://news.baidu.com/n?cmd=4&amp;class=gaokao&amp;tn=rss" htmlUrl="www.baidu.com"/>
+<outline text="考研最新" title="考研最新" type="rss" xmlUrl="http://news.baidu.com/n?cmd=4&amp;class=kaoyan&amp;tn=rss" htmlUrl="www.baidu.com"/>
+<outline text="公务员考试最新" title="公务员考试最新" type="rss" xmlUrl="http://news.baidu.com/n?cmd=4&amp;class=gongwuyuan&amp;tn=rss" htmlUrl="www.baidu.com"/>
+<outline text="资格考试最新" title="资格考试最新" type="rss" xmlUrl="http://news.baidu.com/n?cmd=4&amp;class=zigekaoshi&amp;tn=rss" htmlUrl="www.baidu.com"/>
+<outline text="留学最新" title="留学最新" type="rss" xmlUrl="http://news.baidu.com/n?cmd=4&amp;class=abroad&amp;tn=rss" htmlUrl="www.baidu.com"/>
+<outline text="就业最新" title="就业最新" type="rss" xmlUrl="http://news.baidu.com/n?cmd=4&amp;class=jiuye&amp;tn=rss" htmlUrl="www.baidu.com"/>
+</outline>
+</body>
+</opml>

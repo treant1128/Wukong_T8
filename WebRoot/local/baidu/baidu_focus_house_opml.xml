@@ -1,0 +1,14 @@
+<opml version="1.0">
+<head>
+<title>百度焦点新闻-RSS</title>
+</head>
+<body>
+<outline title="房产焦点-百度RSS" text="房产焦点-百度RSS">
+<outline text="房产焦点" title="房产焦点" type="rss" xmlUrl="http://news.baidu.com/n?cmd=1&amp;class=housenews&amp;tn=rss" htmlUrl="www.baidu.com"/>
+<outline text="各地动态焦点" title="各地动态焦点" type="rss" xmlUrl="http://news.baidu.com/n?cmd=1&amp;class=gddt&amp;tn=rss" htmlUrl="www.baidu.com"/>
+<outline text="政策风向焦点" title="政策风向焦点" type="rss" xmlUrl="http://news.baidu.com/n?cmd=1&amp;class=zcfx&amp;tn=rss" htmlUrl="www.baidu.com"/>
+<outline text="市场走势焦点" title="市场走势焦点" type="rss" xmlUrl="http://news.baidu.com/n?cmd=1&amp;class=shichangzoushi&amp;tn=rss" htmlUrl="www.baidu.com"/>
+<outline text="家居焦点" title="家居焦点" type="rss" xmlUrl="http://news.baidu.com/n?cmd=1&amp;class=fitment&amp;tn=rss" htmlUrl="www.baidu.com"/>
+</outline>
+</body>
+</opml>

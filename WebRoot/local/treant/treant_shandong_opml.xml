@@ -1,0 +1,13 @@
+<opml version="1.0">
+<head>
+<title>山东-RSS</title>
+</head>
+<body>
+<outline title="山东资讯-RSS" text="山东资讯-百度RSS">
+<outline text="山东焦点" title="山东焦点" type="rss" xmlUrl="http://news.baidu.com/n?cmd=7&amp;loc=3996&amp;name=%C9%BD%B6%AB&amp;tn=rss" htmlUrl="www.baidu.com"/>
+<outline text="搜索山东" title="搜索山东" type="rss" xmlUrl="http://news.baidu.com/ns?word=%C9%BD%B6%AB&amp;tn=newsrss&amp;sr=0&amp;cl=2&amp;rn=20&amp;ct=0" htmlUrl="www.soso.com"/>
+<outline text="山东搜搜" title="山东搜搜" type="rss" xmlUrl="http://vdap.soso.com/rss?tag=1&amp;src=-10&amp;ofmt=xml&amp;kd=n&amp;full=1&amp;w=%C9%BD%B6%AB" htmlUrl="www.soso.com"/>
+<outline text="山东省情" title="山东省情" type="rss" xmlUrl="http://www.infobase.gov.cn/rss.php?rssid=9" htmlUrl="http://www.infobase.gov.cn/"/>
+</outline>
+</body>
+</opml>

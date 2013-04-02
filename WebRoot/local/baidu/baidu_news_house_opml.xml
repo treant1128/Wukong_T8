@@ -1,0 +1,14 @@
+<opml version="1.0">
+<head>
+<title>百度最新新闻-RSS</title>
+</head>
+<body>
+<outline title="房产最新-百度RSS" text="房产最新-百度RSS">
+<outline text="房产最新" title="房产最新" type="rss" xmlUrl="http://news.baidu.com/n?cmd=4&amp;class=housenews&amp;tn=rss" htmlUrl="www.baidu.com"/>
+<outline text="各地动态最新" title="各地动态最新" type="rss" xmlUrl="http://news.baidu.com/n?cmd=4&amp;class=gddt&amp;tn=rss" htmlUrl="www.baidu.com"/>
+<outline text="政策风向最新" title="政策风向最新" type="rss" xmlUrl="http://news.baidu.com/n?cmd=4&amp;class=zcfx&amp;tn=rss" htmlUrl="www.baidu.com"/>
+<outline text="市场走势最新" title="市场走势最新" type="rss" xmlUrl="http://news.baidu.com/n?cmd=4&amp;class=shichangzoushi&amp;tn=rss" htmlUrl="www.baidu.com"/>
+<outline text="家居最新" title="家居最新" type="rss" xmlUrl="http://news.baidu.com/n?cmd=4&amp;class=fitment&amp;tn=rss" htmlUrl="www.baidu.com"/>
+</outline>
+</body>
+</opml>

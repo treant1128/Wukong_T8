@@ -1,0 +1,24 @@
+<opml version="1.0">
+<head>
+<title>百度最新新闻-RSS</title>
+</head>
+<body>
+<outline title="娱乐最新-百度RSS" text="娱乐最新-百度RSS">
+<outline text="娱乐最新" title="娱乐最新" type="rss" xmlUrl="http://news.baidu.com/n?cmd=4&amp;class=enternews&amp;tn=rss" htmlUrl="www.baidu.com"/>
+<outline text="明星最新" title="明星最新" type="rss" xmlUrl="http://news.baidu.com/n?cmd=4&amp;class=star&amp;tn=rss" htmlUrl="www.baidu.com"/>
+<outline text="爆料最新" title="爆料最新" type="rss" xmlUrl="http://news.baidu.com/n?cmd=4&amp;class=star_chuanwen&amp;tn=rss" htmlUrl="www.baidu.com"/>
+<outline text="港台最新" title="港台最新" type="rss" xmlUrl="http://news.baidu.com/n?cmd=4&amp;class=star_gangtai&amp;tn=rss" htmlUrl="www.baidu.com"/>
+<outline text="内地最新" title="内地最新" type="rss" xmlUrl="http://news.baidu.com/n?cmd=4&amp;class=star_neidi&amp;tn=rss" htmlUrl="www.baidu.com"/>
+<outline text="欧美最新" title="欧美最新" type="rss" xmlUrl="http://news.baidu.com/n?cmd=4&amp;class=star_oumei&amp;tn=rss" htmlUrl="www.baidu.com"/>
+<outline text="日韩最新" title="日韩最新" type="rss" xmlUrl="http://news.baidu.com/n?cmd=4&amp;class=star_rihan&amp;tn=rss" htmlUrl="www.baidu.com"/>
+<outline text="电影最新" title="电影最新" type="rss" xmlUrl="http://news.baidu.com/n?cmd=4&amp;class=film&amp;tn=rss" htmlUrl="www.baidu.com"/>
+<outline text="电影花絮最新" title="电影花絮最新" type="rss" xmlUrl="http://news.baidu.com/n?cmd=4&amp;class=film_huaxu&amp;tn=rss" htmlUrl="www.baidu.com"/>
+<outline text="电视最新" title="电视最新" type="rss" xmlUrl="http://news.baidu.com/n?cmd=4&amp;class=tv&amp;tn=rss" htmlUrl="www.baidu.com"/>
+<outline text="剧评最新" title="剧评最新" type="rss" xmlUrl="http://news.baidu.com/n?cmd=4&amp;class=tv_jupin&amp;tn=rss" htmlUrl="www.baidu.com"/>
+<outline text="音乐最新" title="音乐最新" type="rss" xmlUrl="http://news.baidu.com/n?cmd=4&amp;class=music&amp;tn=rss" htmlUrl="www.baidu.com"/>
+<outline text="综艺最新" title="综艺最新" type="rss" xmlUrl="http://news.baidu.com/n?cmd=4&amp;class=zongyi&amp;tn=rss" htmlUrl="www.baidu.com"/>
+<outline text="演出最新" title="演出最新" type="rss" xmlUrl="http://news.baidu.com/n?cmd=4&amp;class=yanchu&amp;tn=rss" htmlUrl="www.baidu.com"/>
+<outline text="奖项最新" title="奖项最新" type="rss" xmlUrl="http://news.baidu.com/n?cmd=4&amp;class=jiangxiang&amp;tn=rss" htmlUrl="www.baidu.com"/>
+</outline>
+</body>
+</opml>

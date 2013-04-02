@@ -1,0 +1,17 @@
+<opml version="1.0">
+<head>
+<title>百度焦点新闻-RSS</title>
+</head>
+<body>
+<outline title="娱乐焦点-百度RSS" text="娱乐焦点-百度RSS">
+<outline text="娱乐焦点" title="娱乐焦点" type="rss" xmlUrl="http://news.baidu.com/n?cmd=1&amp;class=enternews&amp;tn=rss" htmlUrl="www.baidu.com"/>
+<outline text="明星焦点" title="明星焦点" type="rss" xmlUrl="http://news.baidu.com/n?cmd=1&amp;class=star&amp;tn=rss" htmlUrl="www.baidu.com"/>
+<outline text="电影焦点" title="电影焦点" type="rss" xmlUrl="http://news.baidu.com/n?cmd=1&amp;class=film&amp;tn=rss" htmlUrl="www.baidu.com"/>
+<outline text="电视焦点" title="电视焦点" type="rss" xmlUrl="http://news.baidu.com/n?cmd=1&amp;class=tv&amp;tn=rss" htmlUrl="www.baidu.com"/>
+<outline text="音乐焦点" title="音乐焦点" type="rss" xmlUrl="http://news.baidu.com/n?cmd=1&amp;class=music&amp;tn=rss" htmlUrl="www.baidu.com"/>
+<outline text="综艺焦点" title="综艺焦点" type="rss" xmlUrl="http://news.baidu.com/n?cmd=1&amp;class=zongyi&amp;tn=rss" htmlUrl="www.baidu.com"/>
+<outline text="演出焦点" title="演出焦点" type="rss" xmlUrl="http://news.baidu.com/n?cmd=1&amp;class=yanchu&amp;tn=rss" htmlUrl="www.baidu.com"/>
+<outline text="奖项焦点" title="奖项焦点" type="rss" xmlUrl="http://news.baidu.com/n?cmd=1&amp;class=jiangxiang&amp;tn=rss" htmlUrl="www.baidu.com"/>
+</outline>
+</body>
+</opml>

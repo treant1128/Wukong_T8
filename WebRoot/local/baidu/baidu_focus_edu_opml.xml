@@ -1,0 +1,13 @@
+<opml version="1.0">
+<head>
+<title>百度焦点新闻-RSS</title>
+</head>
+<body>
+<outline title="教育焦点-百度RSS" text="教育焦点-百度RSS">
+<outline text="教育焦点" title="教育焦点" type="rss" xmlUrl="http://news.baidu.com/n?cmd=1&amp;class=edunews&amp;tn=rss" htmlUrl="www.baidu.com"/>
+<outline text="考试焦点" title="考试焦点" type="rss" xmlUrl="http://news.baidu.com/n?cmd=1&amp;class=exams&amp;tn=rss" htmlUrl="www.baidu.com"/>
+<outline text="留学焦点" title="留学焦点" type="rss" xmlUrl="http://news.baidu.com/n?cmd=1&amp;class=abroad&amp;tn=rss" htmlUrl="www.baidu.com"/>
+<outline text="就业焦点" title="就业焦点" type="rss" xmlUrl="http://news.baidu.com/n?cmd=1&amp;class=jiuye&amp;tn=rss" htmlUrl="www.baidu.com"/>
+</outline>
+</body>
+</opml>

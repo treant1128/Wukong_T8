@@ -1,0 +1,23 @@
+<opml version="1.0">
+<head>
+<title>百度最新新闻-RSS</title>
+</head>
+<body>
+<outline title="科技最新-百度RSS" text="科技最新-百度RSS">
+<outline text="科技最新" title="科技最新" type="rss" xmlUrl="http://news.baidu.com/n?cmd=4&amp;class=technnews&amp;tn=rss" htmlUrl="www.baidu.com"/>
+<outline text="手机最新" title="手机最新" type="rss" xmlUrl="http://news.baidu.com/n?cmd=4&amp;class=cell&amp;tn=rss" htmlUrl="www.baidu.com"/>
+<outline text="手机新品最新" title="手机新品最新" type="rss" xmlUrl="http://news.baidu.com/n?cmd=4&amp;class=cell_xinpin&amp;tn=rss" htmlUrl="www.baidu.com"/>
+<outline text="手机导购最新" title="手机导购最新" type="rss" xmlUrl="http://news.baidu.com/n?cmd=4&amp;class=cell_daogou&amp;tn=rss" htmlUrl="www.baidu.com"/>
+<outline text="手机行情最新" title="手机行情最新" type="rss" xmlUrl="http://news.baidu.com/n?cmd=4&amp;class=cell_hangqing&amp;tn=rss" htmlUrl="www.baidu.com"/>
+<outline text="数码最新" title="数码最新" type="rss" xmlUrl="http://news.baidu.com/n?cmd=4&amp;class=digital&amp;tn=rss" htmlUrl="www.baidu.com"/>
+<outline text="数码新品最新" title="数码新品最新" type="rss" xmlUrl="http://news.baidu.com/n?cmd=4&amp;class=digital_xinpin&amp;tn=rss" htmlUrl="www.baidu.com"/>
+<outline text="数码导购最新" title="数码导购最新" type="rss" xmlUrl="http://news.baidu.com/n?cmd=4&amp;class=digital_daogou&amp;tn=rss" htmlUrl="www.baidu.com"/>
+<outline text="数码行情最新" title="数码行情最新" type="rss" xmlUrl="http://news.baidu.com/n?cmd=4&amp;class=digital_hq&amp;tn=rss" htmlUrl="www.baidu.com"/>
+<outline text="电脑最新" title="电脑最新" type="rss" xmlUrl="http://news.baidu.com/n?cmd=4&amp;class=computer&amp;tn=rss" htmlUrl="www.baidu.com"/>
+<outline text="电脑新品最新" title="电脑新品最新" type="rss" xmlUrl="http://news.baidu.com/n?cmd=4&amp;class=comp_xinpin&amp;tn=rss" htmlUrl="www.baidu.com"/>
+<outline text="电脑导购最新" title="电脑导购最新" type="rss" xmlUrl="http://news.baidu.com/n?cmd=4&amp;class=comp_daogou&amp;tn=rss" htmlUrl="www.baidu.com"/>
+<outline text="电脑行情最新" title="电脑行情最新" type="rss" xmlUrl="http://news.baidu.com/n?cmd=4&amp;class=comp_hangqing&amp;tn=rss" htmlUrl="www.baidu.com"/>
+<outline text="科普最新" title="科普最新" type="rss" xmlUrl="http://news.baidu.com/n?cmd=4&amp;class=discovery&amp;tn=rss" htmlUrl="www.baidu.com"/>
+</outline>
+</body>
+</opml>

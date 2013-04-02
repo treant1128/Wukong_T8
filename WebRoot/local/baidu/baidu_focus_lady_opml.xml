@@ -1,0 +1,15 @@
+<opml version="1.0">
+<head>
+<title>百度焦点新闻-RSS</title>
+</head>
+<body>
+<outline title="女人焦点-百度RSS" text="女人焦点-百度RSS">
+<outline text="女人焦点" title="女人焦点" type="rss" xmlUrl="http://news.baidu.com/n?cmd=1&amp;class=healthnews&amp;tn=rss" htmlUrl="www.baidu.com"/>
+<outline text="潮流服饰焦点" title="潮流服饰焦点" type="rss" xmlUrl="http://news.baidu.com/n?cmd=1&amp;class=chaoliufs&amp;tn=rss" htmlUrl="www.baidu.com"/>
+<outline text="美容护肤焦点" title="美容护肤焦点" type="rss" xmlUrl="http://news.baidu.com/n?cmd=1&amp;class=meironghf&amp;tn=rss" htmlUrl="www.baidu.com"/>
+<outline text="减肥健身焦点" title="减肥健身焦点" type="rss" xmlUrl="http://news.baidu.com/n?cmd=1&amp;class=jianfei&amp;tn=rss" htmlUrl="www.baidu.com"/>
+<outline text="情感两性焦点" title="情感两性焦点" type="rss" xmlUrl="http://news.baidu.com/n?cmd=1&amp;class=qinggan&amp;tn=rss" htmlUrl="www.baidu.com"/>
+<outline text="健康养生焦点" title="健康养生焦点" type="rss" xmlUrl="http://news.baidu.com/n?cmd=1&amp;class=jiankang&amp;tn=rss" htmlUrl="www.baidu.com"/>
+</outline>
+</body>
+</opml>

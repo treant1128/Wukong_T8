@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="Wukong_T8"
+  id="myeclipse.1363527442721"
+  context-root="/Wukong_T8"
+  j2ee-spec="5.0"
+  archive="Wukong_T8.war">
+  <attributes>
+    <attribute name="webrootdir" value="WebRoot" />
+  </attributes>
+</project-module>
+

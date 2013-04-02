@@ -1,0 +1,15 @@
+<opml version="1.0">
+<head>
+<title>百度焦点新闻-RSS</title>
+</head>
+<body>
+<outline title="体育焦点-百度RSS" text="体育焦点-百度RSS">
+<outline text="体育焦点" title="体育焦点" type="rss" xmlUrl="http://news.baidu.com/n?cmd=1&amp;class=sportnews&amp;tn=rss" htmlUrl="www.baidu.com"/>
+<outline text="NBA焦点" title="NBA焦点" type="rss" xmlUrl="http://news.baidu.com/n?cmd=1&amp;class=nba&amp;tn=rss" htmlUrl="www.baidu.com"/>
+<outline text="国际足球焦点" title="国际足球焦点" type="rss" xmlUrl="http://news.baidu.com/n?cmd=1&amp;class=worldsoccer&amp;tn=rss" htmlUrl="www.baidu.com"/>
+<outline text="国内足球焦点" title="国内足球焦点" type="rss" xmlUrl="http://news.baidu.com/n?cmd=1&amp;class=chinasoccer&amp;tn=rss" htmlUrl="www.baidu.com"/>
+<outline text="CBA焦点" title="CBA焦点" type="rss" xmlUrl="http://news.baidu.com/n?cmd=1&amp;class=cba&amp;tn=rss" htmlUrl="www.baidu.com"/>
+<outline text="综合体育焦点" title="综合体育焦点" type="rss" xmlUrl="http://news.baidu.com/n?cmd=1&amp;class=othersports&amp;tn=rss" htmlUrl="www.baidu.com"/>
+</outline>
+</body>
+</opml>

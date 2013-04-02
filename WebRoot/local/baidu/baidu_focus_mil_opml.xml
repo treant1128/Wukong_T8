@@ -1,0 +1,13 @@
+<opml version="1.0">
+<head>
+<title>百度焦点新闻-RSS</title>
+</head>
+<body>
+<outline title="军事焦点-百度RSS" text="军事焦点-百度RSS">
+<outline text="军事焦点" title="军事焦点" type="rss" xmlUrl="http://news.baidu.com/n?cmd=1&amp;class=mil&amp;tn=rss" htmlUrl="www.baidu.com"/>
+<outline text="中国军情焦点" title="中国军情焦点" type="rss" xmlUrl="http://news.baidu.com/n?cmd=1&amp;class=zhongguojq&amp;tn=rss" htmlUrl="www.baidu.com"/>
+<outline text="台海聚焦焦点" title="台海聚焦焦点" type="rss" xmlUrl="http://news.baidu.com/n?cmd=1&amp;class=taihaijj&amp;tn=rss" htmlUrl="www.baidu.com"/>
+<outline text="国际军情焦点" title="国际军情焦点" type="rss" xmlUrl="http://news.baidu.com/n?cmd=1&amp;class=guojijq&amp;tn=rss" htmlUrl="www.baidu.com"/>
+</outline>
+</body>
+</opml>

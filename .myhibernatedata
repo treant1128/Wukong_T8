@@ -1,0 +1,25 @@
+#MyEclipse Hibernate Properties
+#Mon Apr 01 13:37:51 CST 2013
+sessionFactoryName=com.wukong.t8.HibernateSessionFactory
+genBasicCompId=false
+profile=
+daoSFId=
+version=3.3
+jndiPath=
+detectM2M=false
+reStrategyClass=
+detectO2O=false
+springDaoFile=
+useJavaTypes=true
+keyGenerator=
+libInstallFolder=/WebRoot/WEB-INF/lib
+addLibs2Project=true
+genVersionTag=false
+sessionFactoryId=
+basePersistenceClass=
+genAnnotations=false
+reSettingsFile=/Wukong_T8/hibernate.reveng.xml
+configFile=/Wukong_T8/src/hibernate.cfg.xml
+createConfigFile=true
+addLibs2Classpath=true
+baseDaoClass=com.wukong.t8.dao.BaseHibernateDAO

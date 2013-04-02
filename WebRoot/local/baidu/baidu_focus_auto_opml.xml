@@ -1,0 +1,14 @@
+<opml version="1.0">
+<head>
+<title>百度焦点新闻-RSS</title>
+</head>
+<body>
+<outline title="汽车焦点-百度RSS" text="汽车焦点-百度RSS">
+<outline text="汽车焦点" title="汽车焦点" type="rss" xmlUrl="http://news.baidu.com/n?cmd=1&amp;class=autonews&amp;tn=rss" htmlUrl="www.baidu.com"/>
+<outline text="新车焦点" title="新车焦点" type="rss" xmlUrl="http://news.baidu.com/n?cmd=1&amp;class=autobuy&amp;tn=rss" htmlUrl="www.baidu.com"/>
+<outline text="导购焦点" title="导购焦点" type="rss" xmlUrl="http://news.baidu.com/n?cmd=1&amp;class=daogou&amp;tn=rss" htmlUrl="www.baidu.com"/>
+<outline text="各地行情焦点" title="各地行情焦点" type="rss" xmlUrl="http://news.baidu.com/n?cmd=1&amp;class=hangqing&amp;tn=rss" htmlUrl="www.baidu.com"/>
+<outline text="维修养护焦点" title="维修养护焦点" type="rss" xmlUrl="http://news.baidu.com/n?cmd=1&amp;class=weixiu&amp;tn=rss" htmlUrl="www.baidu.com"/>
+</outline>
+</body>
+</opml>

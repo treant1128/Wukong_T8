@@ -1,0 +1,26 @@
+<opml version="1.0">
+<head>
+<title>百度最新新闻-RSS</title>
+</head>
+<body>
+<outline title="财经最新-百度RSS" text="财经最新-百度RSS">
+<outline text="财经最新" title="财经最新" type="rss" xmlUrl="http://news.baidu.com/n?cmd=4&amp;class=finannews&amp;tn=rss" htmlUrl="www.baidu.com"/>
+<outline text="股票最新" title="股票最新" type="rss" xmlUrl="http://news.baidu.com/n?cmd=4&amp;class=stock&amp;tn=rss" htmlUrl="www.baidu.com"/>
+<outline text="大盘最新" title="大盘最新" type="rss" xmlUrl="http://news.baidu.com/n?cmd=4&amp;class=dapan&amp;tn=rss" htmlUrl="www.baidu.com"/>
+<outline text="个股最新" title="个股最新" type="rss" xmlUrl="http://news.baidu.com/n?cmd=4&amp;class=gegu&amp;tn=rss" htmlUrl="www.baidu.com"/>
+<outline text="新股最新" title="新股最新" type="rss" xmlUrl="http://news.baidu.com/n?cmd=4&amp;class=xingu&amp;tn=rss" htmlUrl="www.baidu.com"/>
+<outline text="权证最新" title="权证最新" type="rss" xmlUrl="http://news.baidu.com/n?cmd=4&amp;class=warrant&amp;tn=rss" htmlUrl="www.baidu.com"/>
+<outline text="理财最新" title="理财最新" type="rss" xmlUrl="http://news.baidu.com/n?cmd=4&amp;class=money&amp;tn=rss" htmlUrl="www.baidu.com"/>
+<outline text="基金最新" title="基金最新" type="rss" xmlUrl="http://news.baidu.com/n?cmd=4&amp;class=fund&amp;tn=rss" htmlUrl="www.baidu.com"/>
+<outline text="银行最新" title="银行最新" type="rss" xmlUrl="http://news.baidu.com/n?cmd=4&amp;class=bank&amp;tn=rss" htmlUrl="www.baidu.com"/>
+<outline text="贵金属最新" title="贵金属最新" type="rss" xmlUrl="http://news.baidu.com/n?cmd=4&amp;class=nmetal&amp;tn=rss" htmlUrl="www.baidu.com"/>
+<outline text="保险最新" title="保险最新" type="rss" xmlUrl="http://news.baidu.com/n?cmd=4&amp;class=insurance&amp;tn=rss" htmlUrl="www.baidu.com"/>
+<outline text="外汇最新" title="外汇最新" type="rss" xmlUrl="http://news.baidu.com/n?cmd=4&amp;class=forex&amp;tn=rss" htmlUrl="www.baidu.com"/>
+<outline text="期货最新" title="期货最新" type="rss" xmlUrl="http://news.baidu.com/n?cmd=4&amp;class=futures&amp;tn=rss" htmlUrl="www.baidu.com"/>
+<outline text="宏观经济最新" title="宏观经济最新" type="rss" xmlUrl="http://news.baidu.com/n?cmd=4&amp;class=hongguan&amp;tn=rss" htmlUrl="www.baidu.com"/>
+<outline text="宏观国内最新" title="宏观国内最新" type="rss" xmlUrl="http://news.baidu.com/n?cmd=4&amp;class=hg_guonei&amp;tn=rss" htmlUrl="www.baidu.com"/>
+<outline text="宏观国际最新" title="宏观国际最新" type="rss" xmlUrl="http://news.baidu.com/n?cmd=4&amp;class=hg_guoji&amp;tn=rss" htmlUrl="www.baidu.com"/>
+<outline text="产业经济最新" title="产业经济最新" type="rss" xmlUrl="http://news.baidu.com/n?cmd=4&amp;class=chanye&amp;tn=rss" htmlUrl="www.baidu.com"/>
+</outline>
+</body>
+</opml>

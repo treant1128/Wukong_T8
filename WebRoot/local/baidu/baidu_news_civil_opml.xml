@@ -1,0 +1,17 @@
+<opml version="1.0">
+<head>
+<title>百度最新新闻-RSS</title>
+</head>
+<body>
+<outline title="国内最新-百度RSS" text="国内最新-百度RSS">
+<outline text="国内最新" title="国内最新" type="rss" xmlUrl="http://news.baidu.com/n?cmd=4&amp;class=civilnews&amp;tn=rss" htmlUrl="www.baidu.com"/>
+<outline text="时政要闻最新" title="时政要闻最新" type="rss" xmlUrl="http://news.baidu.com/n?cmd=4&amp;class=shizheng&amp;tn=rss" htmlUrl="www.baidu.com"/>
+<outline text="高层动态最新" title="高层动态最新" type="rss" xmlUrl="http://news.baidu.com/n?cmd=4&amp;class=gaoceng&amp;tn=rss" htmlUrl="www.baidu.com"/>
+<outline text="人事任免最新" title="人事任免最新" type="rss" xmlUrl="http://news.baidu.com/n?cmd=4&amp;class=renmian&amp;tn=rss" htmlUrl="www.baidu.com"/>
+<outline text="台湾最新" title="台湾最新" type="rss" xmlUrl="http://news.baidu.com/n?cmd=4&amp;class=taiwan&amp;tn=rss" htmlUrl="www.baidu.com"/>
+<outline text="历史档案最新" title="历史档案最新" type="rss" xmlUrl="http://news.baidu.com/n?cmd=4&amp;class=lishi&amp;tn=rss" htmlUrl="www.baidu.com"/>
+<outline text="台湾民生最新" title="台湾民生最新" type="rss" xmlUrl="http://news.baidu.com/n?cmd=4&amp;class=twms&amp;tn=rss" htmlUrl="www.baidu.com"/>
+<outline text="港澳最新" title="港澳最新" type="rss" xmlUrl="http://news.baidu.com/n?cmd=4&amp;class=gangaotai&amp;tn=rss" htmlUrl="www.baidu.com"/>
+</outline>
+</body>
+</opml>
