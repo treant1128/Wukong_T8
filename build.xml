@@ -54,11 +54,11 @@
         <pathelement location="WebRoot/WEB-INF/lib/mysql-connector-java-5.1.23-bin.jar"/>
         <pathelement location="WebRoot/WEB-INF/lib/slf4j-api-1.5.8.jar"/>
         <pathelement location="WebRoot/WEB-INF/lib/slf4j-log4j12-1.5.8.jar"/>
-        <pathelement location="libs/c3p0-0.9.1.2.jar"/>
-        <pathelement location="libs/jdom-1.1.1.jar"/>
-        <pathelement location="libs/mysql-connector-java-5.1.23-bin.jar"/>
-        <pathelement location="libs/rome-1.0.jar"/>
-        <pathelement location="libs/rome-opml-1.0.jar"/>
+        <pathelement location="WebRoot/WEB-INF/lib/c3p0-0.9.1.2.jar"/>
+        <pathelement location="WebRoot/WEB-INF/lib/jdom-1.1.1.jar"/>
+        <pathelement location="WebRoot/WEB-INF/lib/mysql-connector-java-5.1.23-bin.jar"/>
+        <pathelement location="WebRoot/WEB-INF/lib/rome-1.0.jar"/>
+        <pathelement location="WebRoot/WEB-INF/lib/rome-opml-1.0.jar"/>
     </path>
     <target name="init">
         <mkdir dir="WebRoot/WEB-INF/classes"/>
