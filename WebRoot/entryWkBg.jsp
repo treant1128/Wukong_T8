@@ -207,7 +207,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						  		
 						  			<td><s:property value="@com.wukong.t8.utils.Utils@cutOffMillis(#element.entryPubDate)" /></td>
 						  			<td>
-						  				<a href="#myModal" role="button" class="btn btn-primary btn-small" data-toggle="modal">提&nbsp;交</a>
+						  		<!--    <a href="#myModal" role="button" class="btn btn-primary btn-small" data-toggle="modal">提&nbsp;交</a>  -->
 						  				<a href="#myModal" role="button" class="btn btn-danger btn-small" data-toggle="modal">更&nbsp;新</a>
 						  			</td>
 						  		</tr>
@@ -235,7 +235,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
    	<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
    		<div class="modal-header">
    			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
-   			<h3 id="myModalLabel">信息下发</h3>
+   			<h3 id="myModalLabel">参数更新</h3>
    		</div>
    		<div class="modal-body">
    			<iframe id="addTaskFrame" frameBorder="0" width="100%" height="100%" src="modifyParams.jsp"></iframe>

@@ -67,6 +67,7 @@
 		
 		<action name="submitAction" class="com.wukong.t8.action.SubmitAction">
 			<result name="success">/submitSuccess.jsp</result>
+			<result name="modifyParamsSuccess">/modifySuccess.jsp</result>
 			<result name="error">/error.jsp</result>
 			
 			<result name="login">/signin.html</result>

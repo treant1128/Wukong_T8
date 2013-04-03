@@ -203,19 +203,19 @@ public class Utils {
 			
 //			map.put("齐鲁大地", new String[]{"treant_shandong_opml.xml"});
 			map.put("国内", new String[]{"baidu_focus_civil_opml.xml", "baidu_news_civil_opml.xml"});
-//			map.put("国际", new String[]{"baidu_focus_inter_opml.xml", "baidu_news_inter_opml.xml"});
-//			map.put("军事", new String[]{"baidu_focus_mil_opml.xml", "baidu_news_mil_opml.xml"});
-//			map.put("财经", new String[]{"baidu_focus_finance_opml.xml", "baidu_news_finance_opml.xml"});
-//			map.put("互联网", new String[]{"baidu_focus_internet_opml.xml", "baidu_news_internet_opml.xml"});
-//			map.put("房产", new String[]{"baidu_focus_house_opml.xml", "baidu_news_house_opml.xml"});
-//			map.put("汽车", new String[]{"baidu_focus_auto_opml.xml", "baidu_news_auto_opml.xml"});
-//			map.put("体育", new String[]{"baidu_focus_sport_opml.xml", "baidu_news_sport_opml.xml"});
-//			map.put("娱乐", new String[]{"baidu_focus_ent_opml.xml", "baidu_news_ent_opml.xml"});
-//			map.put("游戏", new String[]{"baidu_focus_game_opml.xml", "baidu_news_game_opml.xml"});
-//			map.put("教育", new String[]{"baidu_focus_edu_opml.xml", "baidu_news_edu_opml.xml"});
-//			map.put("女人", new String[]{"baidu_focus_lady_opml.xml", "baidu_news_lady_opml.xml"});
-//			map.put("科技", new String[]{"baidu_focus_tech_opml.xml", "baidu_news_tech_opml.xml"});
-//			map.put("社会", new String[]{"baidu_focus_society_opml.xml", "baidu_news_society_opml.xml"});
+			map.put("国际", new String[]{"baidu_focus_inter_opml.xml", "baidu_news_inter_opml.xml"});
+			map.put("军事", new String[]{"baidu_focus_mil_opml.xml", "baidu_news_mil_opml.xml"});
+			map.put("财经", new String[]{"baidu_focus_finance_opml.xml", "baidu_news_finance_opml.xml"});
+			map.put("互联网", new String[]{"baidu_focus_internet_opml.xml", "baidu_news_internet_opml.xml"});
+			map.put("房产", new String[]{"baidu_focus_house_opml.xml", "baidu_news_house_opml.xml"});
+			map.put("汽车", new String[]{"baidu_focus_auto_opml.xml", "baidu_news_auto_opml.xml"});
+			map.put("体育", new String[]{"baidu_focus_sport_opml.xml", "baidu_news_sport_opml.xml"});
+			map.put("娱乐", new String[]{"baidu_focus_ent_opml.xml", "baidu_news_ent_opml.xml"});
+			map.put("游戏", new String[]{"baidu_focus_game_opml.xml", "baidu_news_game_opml.xml"});
+			map.put("教育", new String[]{"baidu_focus_edu_opml.xml", "baidu_news_edu_opml.xml"});
+			map.put("女人", new String[]{"baidu_focus_lady_opml.xml", "baidu_news_lady_opml.xml"});
+			map.put("科技", new String[]{"baidu_focus_tech_opml.xml", "baidu_news_tech_opml.xml"});
+			map.put("社会", new String[]{"baidu_focus_society_opml.xml", "baidu_news_society_opml.xml"});
 			
 		}catch(Exception e){
 			e.printStackTrace();

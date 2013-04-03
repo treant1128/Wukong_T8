@@ -8,6 +8,7 @@ import java.util.List;
 import org.hibernate.LockMode;
 import org.hibernate.Query;
 import org.hibernate.Session;
+import org.hibernate.Transaction;
 import org.hibernate.criterion.Example;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -256,5 +257,29 @@ public class EntryDAO extends BaseHibernateDAO {
 //		}
 		session.close();
 		return all;
+	}
+	
+	public void updateByGuid(String title, String imgUrl, int priority, String guid){
+		Session session = getSession();
+		String hql = "update Entry entry set entry.entryTitle=?, entry.entryImageUrl=?, entry.entryPriority=? where entry.entryGuid=?";
+		
+		Transaction transaction = null;
+		try {
+			transaction = session.beginTransaction();
+			Query query = session.createQuery(hql);
+			query.setString(0, title);
+			query.setString(1, imgUrl);
+			query.setInteger(2, priority);
+			query.setString(3, guid);
+			query.executeUpdate();
+			transaction.commit();
+		} catch (Exception e) {
+			if (transaction != null) {
+				transaction.rollback();
+			}
+			e.printStackTrace();
+		} finally {
+			session.close();
+		}
 	}
 }

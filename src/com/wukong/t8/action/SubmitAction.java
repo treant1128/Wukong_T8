@@ -34,24 +34,28 @@ public class SubmitAction extends ActionSupport {
 	private HttpServletRequest mRequest;
 		
 	public String toSubmit(){
-System.out.println("Õâ¿éµØ·½");
-return SUCCESS;
-//		String uuid=getUUIDByGet(UUID_URL_GET, "UTF-8");
-//		if(uuid==null){
-//			return ERROR;
-//		}
-//		
-//		mRequest=ServletActionContext.getRequest();
-//		String[] os=mRequest.getParameterValues("osCheckbox");
-//		String[] status=mRequest.getParameterValues("userStatus");
-//		String guid=mRequest.getParameter("addSendPlan.sendUrl");
-//		
-//		String json=composeJSONString(uuid, os, status); //  System.out.println("JSON="+json);
-//		if(submitTaskByPost(TASK_URL_POST, json, "UTF-8")){
-//			logSubmitToRepository(guid);
-//			return SUCCESS;
-//		}
-//		return ERROR;	
+		mRequest=ServletActionContext.getRequest();
+		
+		if(LoginAction.power.contains("w")){
+			updateEntry();
+			return "modifyParamsSuccess";
+		}else{
+			String uuid=getUUIDByGet(UUID_URL_GET, "UTF-8");
+			if(uuid==null){
+				return ERROR;
+			}
+			
+			String[] os=mRequest.getParameterValues("osCheckbox");
+			String[] status=mRequest.getParameterValues("userStatus");
+			String guid=mRequest.getParameter("addSendPlan.sendUrl");
+			
+			String json=composeJSONString(uuid, os, status); //  System.out.println("JSON="+json);
+			if(submitTaskByPost(TASK_URL_POST, json, "UTF-8")){
+				logSubmitToRepository(guid);
+				return SUCCESS;
+				}
+			}
+		return ERROR;	
 	}
 	
 	@SuppressWarnings("unchecked")
@@ -72,6 +76,23 @@ return SUCCESS;
 			RepositoryDAO.getInstance().save(r);
 		}
 		
+	}
+	
+	private void updateEntry(){
+		String guid=mRequest.getParameter("addSendPlan.sendUrl");
+		String title=mRequest.getParameter("addSendPlan.sendTitle");
+		String imgUrl=mRequest.getParameter("modifyTask_imgUrl");
+		String priority=mRequest.getParameter("priority");
+		int p=500;
+		try{
+			p=Integer.parseInt(priority);
+		}catch(Exception e){
+			
+		}
+		System.out.println("Title="+title);
+		System.out.println("imgUrl="+imgUrl);
+		System.out.println("priority="+priority);
+		EntryDAO.getInstance().updateByGuid(title, imgUrl, p, guid);
 	}
 	
 	public String getUUIDByGet(String urlPath, String charsetName){

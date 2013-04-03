@@ -55,7 +55,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<div class="control-group">
 						    <h4>题图URL&nbsp;&gt;&gt;</h4>
 						    <div class="controls">
-						      <input name="gUrl" id="modifyTask_imgUrl" type="text"  placeholder="请输入URL....">
+						      <input name="modifyTask_imgUrl" id="modifyTask_imgUrl" type="text"  placeholder="请输入URL....">
 						    </div>
 						</div>
 						
@@ -66,13 +66,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<div class="control-group">
 						    <h4>关注度&nbsp;&gt;&gt;</h4>
 						    <div class="controls">
-						      <input name="priority" id="priority" type="text" class="fv_input_text_default" placeholder="请输入关注度....">
+						      <input name="priority" id="priority" type="text" onblur="checkPriority()" class="fv_input_text_default" placeholder="请输入关注度....">
 						    </div>
 						</div>
 						  
 						  <div class="control-group">
 						    <div class="controls">
-						      <input type="submit" class="btn btn-success btn-large" value="更&nbsp;新"></input>
+						      <input type="submit" onmouseover="checkPriority()" class="btn btn-success btn-large" value="更&nbsp;新"></input>
 						    </div>
 						  </div>
 						        	
@@ -116,11 +116,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					taskImage.show();
 				});		
 				
-				$("#priority").formValidator({
-				automodify:true,onshow:"请输入的优先级（1-999岁之间）",onfocus:"只能输入1-999之间的数字哦",oncorrect:"恭喜你,你输对了"}).inputValidator({min:1,max:99,type:"value",onerrormin:"你输入的值必须大于等于1",onerror:"年龄必须在1-990之间，请确认"}).defaultPassed();
-				
-
 			});
+			
+			function checkPriority(){
+				var priority=document.getElementById('priority').value;
+				var v=parseInt(priority);
+				if(0<=Number(v)&&Number(v)<=999){
+					return;
+		//			document.getElementById('priority').focus;
+				}else{
+					alert('优先级只能为0~999的数字');
+					document.getElementById('priority').focus();
+				}				
+			}
 	</script> 	
 </body>
 </html>
