@@ -64,7 +64,7 @@ public class Opml4channelAction extends ActionSupport implements BaseAction {
 		
 	});
 	//设置为static 全局变量
-	private static int flag=0, ratio=8; //时间间隔比值         无需每次抓取Entry之前都初始化  	
+	private static int flag=0, ratio=10; //时间间隔比值         无需每次抓取Entry之前都初始化  	
 
 	public String getOpmlOutlineXmlUrl() {
 		return opmlOutlineXmlUrl;
@@ -86,32 +86,32 @@ public class Opml4channelAction extends ActionSupport implements BaseAction {
 		refreshO4COpmlUrl();
 	}
 	
-	public String toSnatch(){
-		init();
-		logger.info(new Date()+"->初始化完成");
-		
-		if(isAutomatic){
-			
-			getTimer().schedule(new TimerTask(){
-
-				@Override
-				public void run() {
-					// TODO Auto-generated method stub
-					logger.info(new Date()+"->开始mainToSnatch");
-					
-					mainToSnatch();   
-					
-				}
-
-			}, TIMER_DELAY, TIMER_INTERVAL);
-//			LoginAction.TIME_DELAY=3600*1000;  // Reset time delay
-		}else{		
-			logger.info("以手动模式抓取");
-			mainToSnatch();
-		}
-		
-		return SUCCESS;
-	}
+//	public String toSnatch(){
+//		init();
+//		logger.info(new Date()+"->初始化完成");
+//		
+//		if(isAutomatic){
+//			
+//			getTimer().schedule(new TimerTask(){
+//
+//				@Override
+//				public void run() {
+//					// TODO Auto-generated method stub
+//					logger.info(new Date()+"->开始mainToSnatch");
+//					
+//					mainToSnatch();   
+//					
+//				}
+//
+//			}, TIMER_DELAY, TIMER_INTERVAL);
+//
+//		}else{		
+//			logger.info(LoginAction.nickname+" 改为手动抓取");
+//			mainToSnatch();
+//		}
+//		
+//		return SUCCESS;
+//	}
 	
 	/**
 	 * 执行Snatch的主函数
@@ -120,9 +120,8 @@ public class Opml4channelAction extends ActionSupport implements BaseAction {
 	public String mainToSnatch() {
 
 		if(initperiodically()&& o4cFuture.isDone()){ //block until retrieve result 
-			logger.info(new Date()+"->fill Feed Over去EntryAction->Snatch");
-//			System.out.println("执行entryAction.toSnatch=="+new Date());
-			entryAction.toSnatch();
+			logger.info(new Date()+"->去EntryAction->Snatch");
+//			entryAction.toSnatch();
 		}else{
 			errorCount++;
 			logger.error("ErrorCount="+errorCount);
@@ -177,7 +176,7 @@ public class Opml4channelAction extends ActionSupport implements BaseAction {
 			int channelCount=channelList.size();
 			
 			if(channelCount!=0){   //channel表中已有数据
-				logger.info("已有频道数Count="+channelCount);
+				logger.info("已有频道数="+channelCount);
 				
 				for(int i=0;i<channelCount;i++){
 					final Channel channel=channelList.get(i);
@@ -217,23 +216,6 @@ public class Opml4channelAction extends ActionSupport implements BaseAction {
 		return true;
 	}
 		
-//	private void initFeed(){
-//		final FeedDAO feedDAO=FeedDAO.getInstance();
-//		for(Iterator<Opml4channel> iterator=o4cSet.iterator();iterator.hasNext();){
-//			final Opml4channel o=iterator.next();
-//			feedFuture=executorService.submit(new Callable<Integer>(){
-//
-//				public Integer call() throws Exception {
-//					Feed feed=FeedParser.getFeedByOpmlOutlineXmlUrl(o);
-//					if(feed!=null){
-//						feedDAO.save(feed);
-//					}
-//					return 888;
-//				}
-//				
-//			});
-//		}
-//	}
 	/**
 	 * 根据频道channel向其相关的表-->opml4channel中插入子频道数据附带"去重"
 	 * @param channel
@@ -248,7 +230,6 @@ public class Opml4channelAction extends ActionSupport implements BaseAction {
 				o4cDAO.save(o4c);  
 			}	
 		}
-		
 	}
 		
 	/**
@@ -411,33 +392,37 @@ public class Opml4channelAction extends ActionSupport implements BaseAction {
 		Utils.initHTMLLogger(logger, loggerPath, true, Level.DEBUG);
 	}
 
-	public static Timer getTimer(){
-		if(timer==null){
-			timer=new Timer();
-		}
-		return timer;
-	}
+//	public static Timer getTimer(){
+//		if(timer==null){
+//			timer=new Timer();
+//		}
+//		return timer;
+//	}
 
 	public Logger getLogger() {
 		// TODO Auto-generated method stub
 		return Logger.getLogger(Opml4channelAction.class);
 	}
 	
-	public String setTimeDelay(){
-		if(TIMER_INTERVAL!=0){
-			logger.fatal(LoginAction.nickname+"已于"+new Date()+"设定抓取间隔为"+TIMER_INTERVAL+"小时");
-			TIMER_INTERVAL*=3600*1000;  //hour--> Milliseconds
-			TIMER_DELAY=TIMER_INTERVAL;
-			timer.cancel();
-			timer=null;
-			toSnatch();
-		}else{
-			isAutomatic=false;
-			timer.cancel();
-			timer=null;
-			logger.fatal(LoginAction.nickname+"已于"+new Date()+"设定抓取模式为手动");
-		}
-		return "setSnatchInterval";
-	}
+//	public String setTimeDelay(){
+//		if(TIMER_INTERVAL!=0){
+//			logger.fatal(LoginAction.nickname+"已于"+new Date()+"设定抓取间隔为"+TIMER_INTERVAL+"小时");
+//			TIMER_INTERVAL*=3600*1000;  //hour--> Milliseconds
+//			TIMER_DELAY=TIMER_INTERVAL;
+//			if(timer!=null){
+//				timer.cancel();
+//				timer=null;
+//			}
+//			toSnatch();
+//		}else{
+//			isAutomatic=false;
+//			if(timer!=null){
+//				timer.cancel();
+//				timer=null;
+//			}
+//			logger.fatal(LoginAction.nickname+"已于"+new Date()+"设定抓取模式为手动");
+//		}
+//		return "setSnatchInterval";
+//	}
 		
 }

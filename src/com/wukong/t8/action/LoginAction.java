@@ -10,13 +10,8 @@ import java.sql.SQLException;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
-import java.util.Timer;
-import java.util.TimerTask;
-
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
-import org.apache.log4j.SimpleLayout;
-import org.apache.log4j.WriterAppender;
 import org.apache.struts2.interceptor.SessionAware;
 
 
@@ -38,7 +33,8 @@ public class LoginAction extends ActionSupport implements SessionAware, BaseActi
 	public static List<Channel> channels=null;
 //	private String loggerPath=null;
 	private Logger logger=getLogger();
-	public static int TIME_DELAY=3*3600*1000; // one hour -> Milliseconds
+
+//	public static int TIME_DELAY=3*3600*1000; // one hour -> Milliseconds
 	
 	public static String nickname=null;
 	public static String region=null;
@@ -65,38 +61,7 @@ public class LoginAction extends ActionSupport implements SessionAware, BaseActi
 	
 	@SuppressWarnings("unchecked")
 	public String execute(){
-//		
-//		if(input == null || "".equals(input)){
-//			return "error";
-//		}
-//		String key = "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCAAzp8YDDp7y3OmWeoobO6YuR3DF1gougKsY3RulBwlTQqQz5HuqxgkDDVNUFlfExWMe5mEr0qdZ1n/vLepLcT6thAHRadi+CfhypT10B0HDblyB7W6OIREZEQErrOSLcc9Knjn3tL41yxemVp0XK0C3MG6q1ikwWQXNLW6nPXaQIDAQAB";
-//		
-//		DESUtils crypt = new DESUtils(key);
-//		try {
-//			input =  crypt.decrypt(input);
-//		} catch (Exception e) {
-//			System.out.println("2");
-//			e.printStackTrace();
-//			return "error";
-//		}
-//		String[] userInfo = input.split("&");
-//		if(userInfo==null||userInfo.length<3){
-//			return "error";
-//		}
-//		String username =userInfo[0];
-//		String password = userInfo[1];
-//		String service = userInfo[2];
-//		String path = WebUtil.getBasePath();
-//		String localPower="";
-//		boolean flag=false;
-//	    Properties props = new Properties();
-//	    try {
-//			props.load(DBToolkit.class.getResourceAsStream("/properties/t4-configuration.properties"));
-//			localPower = (props.getProperty("power"));
-//		} catch (IOException e2) {
-//			// TODO Auto-generated catch block
-//			e2.printStackTrace();
-//		}
+
 		Utils.initHTMLLogger(logger, Utils.getWebRootPath()+"SnatchLog.html", true, Level.DEBUG);
 		Connection conn  = DBToolkit.getConnection();
 		if(conn==null){System.out.println("链接失败");}
@@ -105,16 +70,6 @@ public class LoginAction extends ActionSupport implements SessionAware, BaseActi
 		ResultSet rs = DBToolkit.executeQuery(conn, sql.toString());
 		try {
 			if(rs.next()){
-//				String powers = rs.getString("power");
-//				String power[] = powers.split(",");
-//				for(int i = 0 ; i < power.length ; i ++){
-//					if(power[i].equals("-1")){
-//						flag=true;
-//					}else if(power[i].equals(localPower)){
-//						flag=true;
-//					}
-//					
-//				}
 				String name=rs.getString("name");
 				String password=rs.getString("password");
 				region=rs.getString("region");
@@ -142,19 +97,7 @@ public class LoginAction extends ActionSupport implements SessionAware, BaseActi
 				
 				initTimeDelay();
 			}else{
-				return "LoginFailture";
-								
-//			///服务器连不上暂且饶过	
-//				
-//				Map<String, Object> session=(Map<String, Object>) ActionContext.getContext().getSession();
-//
-//				//加载频道列表
-////				request=(Map<String, Object>) ActionContext.getContext().get("request");
-//				List<Channel> channels=ChannelDAO.getInstance().findAll();
-//				session.put("channels", channels);
-//				
-//				return "LoginSuccess";
-//			///服务器连不上暂且饶过	
+				return "LoginFailture";	
 			}
 		} catch (SQLException e1) {
 			// TODO Auto-generated catch block
@@ -196,32 +139,14 @@ public class LoginAction extends ActionSupport implements SessionAware, BaseActi
 		try {
 			writer = new FileWriter(bakPath, false);  		//override
 			if(lastLogin==null||lastLogin.length()==0){     //第一次部署时bak文件根本不存在
-				TIME_DELAY=5000;
-				logger.info(nickname+"--第一次登录"+new Date()+",5S后开始抓取");
+//				TIME_DELAY=5000;
+				logger.info(nickname+"--第一次登录"+new Date()+",2S后开始抓取");
 				
 			}else {
 				long interval=System.currentTimeMillis()-Long.valueOf(lastLogin);
-//				TIME_DELAY=(int) ((interval>=TIME_DELAY)?3000:(TIME_DELAY-interval));
-				logger.info(nickname+"--距上次登录间隔"+interval+"毫秒,"
-//						+TIME_DELAY+"毫秒后开始下一次抓取"
-						);
-				if(Opml4channelAction.timer!=null){
-					Opml4channelAction.timer.cancel();
-					Opml4channelAction.timer=null;
-				}
+				logger.info(nickname+"--距上次登录间隔"+interval+"毫秒");
 			}
-			
-			new Timer().schedule(new TimerTask(){
-
-				@Override
-				public void run() {
-					// TODO Auto-generated method stub
-					Opml4channelAction o4cAction=new Opml4channelAction();
-					o4cAction.toSnatch();
-				}
-				
-			}, TIME_DELAY);
-			
+						
 			writer.write(Long.toString(System.currentTimeMillis()));
 		} catch (IOException e1) {
 			// TODO Auto-generated catch block
@@ -242,9 +167,9 @@ public class LoginAction extends ActionSupport implements SessionAware, BaseActi
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
 	public Logger getLogger() {
 		// TODO Auto-generated method stub
 		return Logger.getLogger(LoginAction.class);
 	}
-	
 }

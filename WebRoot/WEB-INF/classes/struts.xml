@@ -52,7 +52,7 @@
 			<result name="error">/error.jsp</result>
 			<result name="toEntries">/entryCategory.jsp</result>
 			<result name="toWkBg">/entryWkBg.jsp</result>
-			<result name="setSnatchInterval">/pages/index.jsp</result>
+			<result name="setSnatchInterval">/index.jsp</result>
 			
 			<result name="login">/signin.html</result>
 		</action>

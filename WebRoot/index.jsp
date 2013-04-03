@@ -438,7 +438,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
    		 </div>
        </div>
    		             
-            <div class="row-fluid">
+            <div id="snatchOperation" class="row-fluid">
             	<div class="span4">
             		<h3>自动抓取时间间隔设置</h3>
             		<select name="snatchInterval" id="snatchIntervalId" class="input_text_1" 
@@ -470,10 +470,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   							<strong>提示!</strong> 关注度为0~9999的正整数.
 						</div>
            		</div>
-          		<div class="span3">
-	            	<p><a href="entryAction!toSnatch" class="btn btn-primary btn-large" data-loading-text="正在抓取...">立即手动抓取&raquo;</a></p>
-	            </div>
-            	</div>
+          		
+            </div>
+            
+            <div class="span3">
+	            	<p><a id="manualSnatch" href="entryAction!toSnatch" class="btn btn-primary btn-large" data-loading-text="正在抓取...">立即手动抓取&raquo;</a></p>
+	        </div>
+            
+            
         </div><!--/span-->
       </div><!--/row-->
           
@@ -549,6 +553,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       }(window.jQuery)
     </script>
     <script src="js/js/holder/holder.js"></script>
-	
+    <script type="text/javascript">
+		$(document).ready(function(){
+				var snatch=$("#snatchOperation");
+					snatch.hide();
+		});
+	</script>   
   </body>
 </html>

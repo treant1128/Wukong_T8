@@ -1,8 +1,5 @@
 package com.wukong.t8.utils;
 
-import java.util.Date;
-import java.util.Map;
-
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.log4j.Level;
@@ -68,8 +65,8 @@ public class CheckLoginInterceptor extends AbstractInterceptor  {
 //			logger.info(userSession+"已经登录,拦截通过"+new Date().toString());
 			return actionInvocation.invoke();
 		}else{
-			System.out.println("no Login, forward login again");
-			logger.info(new Date()+"没有登录,跳转至Login");
+//			System.out.println("no Login, forward login again");
+//			logger.info(new Date()+"没有登录,跳转至Login");
 			return Action.LOGIN;
 		}
 		

@@ -34,24 +34,24 @@ public class SubmitAction extends ActionSupport {
 	private HttpServletRequest mRequest;
 		
 	public String toSubmit(){
-//System.out.println("这块地方");
-//return SUCCESS;
-		String uuid=getUUIDByGet(UUID_URL_GET, "UTF-8");
-		if(uuid==null){
-			return ERROR;
-		}
-		
-		mRequest=ServletActionContext.getRequest();
-		String[] os=mRequest.getParameterValues("osCheckbox");
-		String[] status=mRequest.getParameterValues("userStatus");
-		String guid=mRequest.getParameter("addSendPlan.sendUrl");
-		
-		String json=composeJSONString(uuid, os, status); //  System.out.println("JSON="+json);
-		if(submitTaskByPost(TASK_URL_POST, json, "UTF-8")){
-			logSubmitToRepository(guid);
-			return SUCCESS;
-		}
-		return ERROR;	
+System.out.println("这块地方");
+return SUCCESS;
+//		String uuid=getUUIDByGet(UUID_URL_GET, "UTF-8");
+//		if(uuid==null){
+//			return ERROR;
+//		}
+//		
+//		mRequest=ServletActionContext.getRequest();
+//		String[] os=mRequest.getParameterValues("osCheckbox");
+//		String[] status=mRequest.getParameterValues("userStatus");
+//		String guid=mRequest.getParameter("addSendPlan.sendUrl");
+//		
+//		String json=composeJSONString(uuid, os, status); //  System.out.println("JSON="+json);
+//		if(submitTaskByPost(TASK_URL_POST, json, "UTF-8")){
+//			logSubmitToRepository(guid);
+//			return SUCCESS;
+//		}
+//		return ERROR;	
 	}
 	
 	@SuppressWarnings("unchecked")

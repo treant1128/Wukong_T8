@@ -35,6 +35,8 @@ public class EntryAction extends ActionSupport implements BaseAction {
 	private HttpServletRequest mRequest;
 	private List<Entry> entries;
 	private static EntryDAO entryDAO=EntryDAO.getInstance();
+	public static Opml4channelAction o4cAction=new Opml4channelAction();
+	private static int i=0;
 //	private static FeedDAO feedDAO=FeedDAO.getInstance();
 //	private static List<String> allFeedTitle=null;
 	
@@ -77,8 +79,9 @@ public class EntryAction extends ActionSupport implements BaseAction {
 		
 		if(allO4C!=null&&allO4C.size()!=0){
 			final Iterator<Opml4channel> iterator=allO4C.iterator();
-			logger.fatal(new Date()+"EntryAction--toSnatch...");
-			
+			i++;
+			logger.fatal(new Date()+"抓取次数="+i);
+//			System.out.println("Count=="+i);
 			while(iterator.hasNext()){
 				executorService2.submit(new Runnable(){
 
@@ -98,21 +101,9 @@ public class EntryAction extends ActionSupport implements BaseAction {
 	 * @return
 	 */
 	private void saveEntry(Opml4channel o4c){
-		if(o4c!=null){
-//			Feed feed=FeedParser.getFeedByOpmlOutlineXmlUrl(o4c); //外来的feed
-//
-//			if(!o4c.getFeeds().contains(feed)){
-//				feedDAO.save(feed);
-//			}
-//			if(allFeedFK_URLs.add(feed.getOpml4channel().getOpmlOutlineXmlUrl())){    //因为baidu的所有feed的link都是http://new.baidu.com所以不能排重判断 否则只能收录一个
-//				FeedDAO.getInstance().save(feed);  //以外键FK_url作为唯一标示  
-////				System.out.println("保存的Feed="+feed.getOpml4channel().getOpmlOutlineXmlUrl());
-//			}
-//			saveFeed(feed);
-			
+		if(o4c!=null){			
 			List<Entry> entryList=EntryParser.getEntryListByOpmlOutlineXmlUrl(o4c);
 			for(Entry entry:entryList){//System.out.println("==="+entry.getEntryTitle());
-//				saveEntry(entry);
 				if(allEntryGuids.add(entry.getEntryGuid())){
 					entryDAO.save(entry);
 				}
@@ -125,15 +116,14 @@ public class EntryAction extends ActionSupport implements BaseAction {
 	 */
 	private void init(){		
 		allO4C=new HashSet<Opml4channel>();
-//		allFeedFK_URLs=new HashSet<String>();
 		allEntryGuids=new HashSet<String>();
 
 		initO4CSet();
-//		initFeed();
 		initEntrySet();
 		
 		Utils.initHTMLLogger(logger, Utils.getWebRootPath()+"SnatchLog.html", true, Level.DEBUG);
 		logger.info("Entry之toSnatch初始化完成-only once");
+		o4cAction.mainToSnatch();
 	}
 	
 	@SuppressWarnings("unchecked")
@@ -143,15 +133,7 @@ public class EntryAction extends ActionSupport implements BaseAction {
 			allO4C.add(o4c);
 		}
 	}
-	
-//	@SuppressWarnings("unchecked")
-//	private void initFeed(){
-//		 List<Feed> originalFeeds=feedDAO.findAll();
-//		 for(Feed f:originalFeeds){
-//			 allFeedTitle.add(f.getFeedTitle());
-//		 }
-//	}
-	
+
 	@SuppressWarnings("unchecked")
 	private void initEntrySet(){
 		List<Entry> originalEntries=EntryDAO.getInstance().findAll();

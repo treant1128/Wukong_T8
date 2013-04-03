@@ -10,7 +10,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <title>下发 &middot; 提交</title>
     <!-- Bootstrap -->
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
-    <link type="text/css" href="css/custom-theme/jquery-ui-1.10.0.custom.css" rel="stylesheet" />
  	<link href="bootstrap/css/bootstrap.css" rel="stylesheet">
     <link href="bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
     <link href="bootstrap/css/docs.css" rel="stylesheet">   
@@ -56,7 +55,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<div class="control-group">
 						    <h4>题图URL&nbsp;&gt;&gt;</h4>
 						    <div class="controls">
-						      <input name="gUrl" id="modifyTask.imgUrl" type="text"  onChange="loadImage()" placeholder="请输入URL....">
+						      <input name="gUrl" id="modifyTask_imgUrl" type="text"  placeholder="请输入URL....">
 						    </div>
 						</div>
 						
@@ -82,14 +81,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				 </div><!--container-fluid END -->
 	</form>
 					<div class="span4">
-						<img id="taskImage" alt="请输入正确题图路径..." width="450" height="450" style="visibility:hidden;" >						
+						<img id="taskImage" alt="请输入正确题图路径..." width="450" height="450">						
 					</div>
 			  <hr>
 
 	    	</div><!--/.fluid-container-->
-	
- 	<script src="js/jquery.min.js"></script>
- 	<script src="js/jquery.js"></script>
+	<script src="js/jquery.js"></script>
  	<script src="js/js/bootstrap-alert.js"></script>
     <script language="javascript" src="datetimepicker_css.js"></script>
 
@@ -103,41 +100,23 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     					title.val(message.title);
     					url.val(message.url);
 				};
-			});
-	</script>
 
-	<script language="javascript">
-		function myClose(){  //关闭本窗口时调用
-			window.dialogArguments.btnQueryHandler();  //关闭时父窗口也跟着关闭
-		}
-		function loadImage(){
-			var imgUrl=document.getElementById("modifyTask.imgUrl").value;
-			var img=document.getElementById("taskImage");
-//			alert(imgUrl);
-			img.style.visibility="visible";
-			img.src=imgUrl;
-		}
-		
-		function checkForm(){
-			var priority = document.getElementById("priority").value.trim();
-			alert("abc345");
-			alert(Integer.parseInt(priority));
-			if(
-	//		!priority.match("^[1-9]\\d*|0$")JSP中正则表达式的匹配问题//////////////////
-			||Integer.parseInt('priority')<0
-			||Integer.parseInt('priority')>9999
-			){
-				alert("优先级只能设为0~9999的数字");
-				submitForm.priority.focus();
-				return false;
-			}
-			return true;
-		}
-	</script>
-  	
-   
-    
-   
-  	
+				
+				var imgTextBox=$("#modifyTask_imgUrl");
+				var taskImage=$("#taskImage");
+					taskImage.hide();
+				
+				//console.log(imgTextBox);
+				
+				imgTextBox.blur(function(){
+					//console.log("hi i am blur");
+					var imgUrl=$(this).val();
+					console.log(imgUrl);
+					taskImage.attr("src",imgUrl);
+					taskImage.show();
+				});		
+
+			});
+	</script> 	
 </body>
 </html>
