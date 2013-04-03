@@ -11,10 +11,6 @@
     <property name="source" value="1.5"/>
     <path id="Wukong_T8.classpath">
         <pathelement location="WebRoot/WEB-INF/classes"/>
-        <pathelement location="WebRoot/WEB-INF/lib/javaee.jar"/>
-        <pathelement location="WebRoot/WEB-INF/lib/jsf-impl.jar"/>
-        <pathelement location="WebRoot/WEB-INF/lib/jsf-api.jar"/>
-        <pathelement location="WebRoot/WEB-INF/lib/jstl-1.2.jar"/>
         <pathelement location="WebRoot/WEB-INF/lib/aopalliance-1.0.jar"/>
         <pathelement location="WebRoot/WEB-INF/lib/classworlds-1.1.jar"/>
         <pathelement location="WebRoot/WEB-INF/lib/commons-beanutils-1.7.0.jar"/>
