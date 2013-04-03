@@ -116,7 +116,7 @@ INSERT INTO operator (name, region, upower, password, comment) VALUES ('liaochcc
 INSERT INTO operator (name, region, upower, password, comment) VALUES ('linyicc', '¡Ÿ“ ', 's', 'linyi0539', '');
 INSERT INTO operator (name, region, upower, password, comment) VALUES ('hezecc', '∫ ‘Û', 's', 'heze0530', '');
 INSERT INTO operator (name, region, upower, password, comment) VALUES ('laiwucc', '¿≥Œﬂ', 's', 'laiwu0634', '');
-INSERT INTO operator (name, region, upower, password, comment) VALUES ('demo', 'demo', '', 'demo', '');
+INSERT INTO operator (name, region, upower, password, comment) VALUES ('demo', 'demo', 'a', 'demo', '');
 
 INSERT INTO operator (name, region, upower, password, comment) VALUES ('w', 'À˜¬Ì¿Ô', 'w-s', 'w', '');
 

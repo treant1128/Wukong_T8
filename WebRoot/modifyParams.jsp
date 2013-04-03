@@ -66,7 +66,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<div class="control-group">
 						    <h4>关注度&nbsp;&gt;&gt;</h4>
 						    <div class="controls">
-						      <input name="priority" id="priority" type="text" id="input" placeholder="请输入关注度....">
+						      <input name="priority" id="priority" type="text" class="fv_input_text_default" placeholder="请输入关注度....">
 						    </div>
 						</div>
 						  
@@ -115,6 +115,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					taskImage.attr("src",imgUrl);
 					taskImage.show();
 				});		
+				
+				$("#priority").formValidator({
+				automodify:true,onshow:"请输入的优先级（1-999岁之间）",onfocus:"只能输入1-999之间的数字哦",oncorrect:"恭喜你,你输对了"}).inputValidator({min:1,max:99,type:"value",onerrormin:"你输入的值必须大于等于1",onerror:"年龄必须在1-990之间，请确认"}).defaultPassed();
+				
 
 			});
 	</script> 	
