@@ -198,7 +198,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
   						</tr>  
   						 	<s:iterator var="element" value="#session.entries">
-						   		<tr title='<s:property value="#element.entryDescription"/>'>
+  						 	<!-- 鼠标悬停提示内容 	title='<s:property value="#element.entryDescription"/>'   -->
+						   		<tr>
 						  			<td><s:property value="#element.entryId"/></td>
 						  		
 						  			<td class="newsTitle"><s:property value="#element.entryTitle" /></td>
