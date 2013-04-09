@@ -343,7 +343,7 @@ public class Opml4channelAction extends ActionSupport implements BaseAction {
 	public String toSubChannelEntry(){System.out.println("当前页码=="+currentPage);
 	
 		if(opmlOutlineXmlUrl!=null){
-			System.out.println("不转码的地址="+opmlOutlineXmlUrl);
+//			System.out.println("不转码的地址="+opmlOutlineXmlUrl);
 			
 			try {
 				opmlOutlineXmlUrl=URLDecoder.decode(opmlOutlineXmlUrl, "UTF-8");
@@ -388,11 +388,11 @@ public class Opml4channelAction extends ActionSupport implements BaseAction {
 					session.put("totalPages", totalPages);
 					session.put("totalRows", totalRows);
 					
-					System.out.println(
-							"当前页="+currentPage+
-							",总页码="+totalPages+
-							",总数目="+totalRows
-							);
+//					System.out.println(
+//							"当前页="+currentPage+
+//							",总页码="+totalPages+
+//							",总数目="+totalRows
+//							);
 					
 //					session.put("userSecretKeys", SECRET_KEY_PRE_URL+LoginAction.secretKeys);   //现在没用到
 //					allEntrySet=null;
