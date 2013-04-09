@@ -45,10 +45,17 @@ public class Opml4channelAction extends ActionSupport implements BaseAction {
 //	private Set<Entry> allEntrySet=null;
 	private String opmlOutlineXmlUrl;
 	
-	private static int TIMER_INTERVAL=3*3600*1000;//
-	private static int TIMER_DELAY=5000;
-	private static boolean isAutomatic=true;
-	private static EntryAction entryAction=new EntryAction();
+	private static int TIMER_INTERVAL=3*3600*1000;
+//	private static int TIMER_DELAY=5000;
+	private static int currentPage=1;
+	private String pageKey="1st";
+	private static String tempURL="";
+	private int totalPages=0;
+	private int totalRows=0;
+	private static final int NUM_PER_PAGE=50;
+//	private static boolean isAutomatic=true;
+	private static EntryAction entryAction=null;
+	private static EntryDAO entryDAO=null;
 	private int errorCount=0;
 	private Logger logger=getLogger();
 	
@@ -81,9 +88,28 @@ public class Opml4channelAction extends ActionSupport implements BaseAction {
 	public static void setTIMER_INTERVAL(int tIMERINTERVAL) {
 		TIMER_INTERVAL = tIMERINTERVAL;
 	}
+	
+	public static int getCurrentPage() {
+		return currentPage;
+	}
+
+	public static void setCurrentPage(int currentPage) {
+		Opml4channelAction.currentPage = currentPage;
+	}
+
+	public String getPageKey() {
+		return pageKey;
+	}
+
+	public void setPageKey(String pageKey) {
+		this.pageKey = pageKey;
+	}
+
 
 	static{
 		refreshO4COpmlUrl();
+		entryAction=new EntryAction();
+		entryDAO=EntryDAO.getInstance();
 	}
 	
 //	public String toSnatch(){
@@ -314,7 +340,8 @@ public class Opml4channelAction extends ActionSupport implements BaseAction {
 		
 		
 	@SuppressWarnings("unchecked")
-	public String toSubChannelEntry(){
+	public String toSubChannelEntry(){System.out.println("当前页码=="+currentPage);
+	
 		if(opmlOutlineXmlUrl!=null){
 			System.out.println("不转码的地址="+opmlOutlineXmlUrl);
 			
@@ -328,12 +355,25 @@ public class Opml4channelAction extends ActionSupport implements BaseAction {
 				e.printStackTrace();
 			}
 						
+			if(!tempURL.equals(opmlOutlineXmlUrl)){
+				currentPage=1;  System.out.println("换子频道了,从第一页开始");
+			}
+			
+			tempURL=opmlOutlineXmlUrl;
 			List<Opml4channel> o4cList=Opml4channelDAO.getInstance().findByOpmlOutlineXmlUrl(opmlOutlineXmlUrl);
 			
 			if(o4cList!=null&&o4cList.size()!=0){
 //				Opml4channel o4c=o4cList.get(0);
 //				Set<Entry> entries=getReferencedEntriesByOpml4channel(o4c);
-				List<Entry> entries=EntryDAO.getInstance().getReferencedEntriesByOpml4channel(opmlOutlineXmlUrl);
+			
+				Map<String, Integer>map=entryDAO.getEntryNumInfo(opmlOutlineXmlUrl, NUM_PER_PAGE);
+				totalPages=map.get("totalPages");
+				totalRows=map.get("totalRows");
+				
+				verifyPageKey(pageKey);
+				
+				List<Entry> entries=entryDAO.getReferencedEntriesByOpml4channel(opmlOutlineXmlUrl, currentPage, NUM_PER_PAGE);
+
 				
 				Map<String, Object> session=(Map<String, Object>) ActionContext.getContext().getSession();
 				if(entries!=null){
@@ -341,6 +381,19 @@ public class Opml4channelAction extends ActionSupport implements BaseAction {
 					session.put("entrySize", entries.size());
 					session.put("o4cList", ChannelAction.o4cList);
 					session.put("channels", LoginAction.channels);
+					
+					session.put("opmlOutlineXmlUrl", opmlOutlineXmlUrl);
+					session.put("currentPage", currentPage);
+//					session.put("pageKey", pageKey);  System.out.println("pppppppp="+pageKey);
+					session.put("totalPages", totalPages);
+					session.put("totalRows", totalRows);
+					
+					System.out.println(
+							"当前页="+currentPage+
+							",总页码="+totalPages+
+							",总数目="+totalRows
+							);
+					
 //					session.put("userSecretKeys", SECRET_KEY_PRE_URL+LoginAction.secretKeys);   //现在没用到
 //					allEntrySet=null;
 					if(LoginAction.power.contains("w")){
@@ -424,5 +477,24 @@ public class Opml4channelAction extends ActionSupport implements BaseAction {
 //		}
 //		return "setSnatchInterval";
 //	}
-		
+	
+	public void verifyPageKey(String pageKey){
+		if(pageKey.equals("last")&&Opml4channelAction.currentPage>1){
+			Opml4channelAction.currentPage--;
+		}else if(pageKey.equals("1st")&&totalPages>=1){
+			Opml4channelAction.currentPage=1;
+		}else if(pageKey.equals("2nd")&&totalPages>=2){
+			Opml4channelAction.currentPage=2;
+		}else if(pageKey.equals("3rd")&&totalPages>=3){
+			Opml4channelAction.currentPage=3;
+		}else if(pageKey.equals("4th")&&totalPages>=4){
+			Opml4channelAction.currentPage=4;
+		}else if(pageKey.equals("5th")&&totalPages>=5){
+			Opml4channelAction.currentPage=5;
+		}else if(pageKey.equals("next")&&Opml4channelAction.currentPage<this.totalPages){
+			Opml4channelAction.currentPage++;
+		}else{
+			Opml4channelAction.currentPage=1;
+		}
+	}
 }

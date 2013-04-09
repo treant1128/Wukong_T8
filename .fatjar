@@ -1,0 +1,14 @@
+#Fat Jar Configuration File
+#Sun Apr 07 12:34:15 CST 2013
+onejar.license.required=false
+manifest.classpath=
+manifest.removesigners=true
+onejar.checkbox=true
+jarname=C\:\\Documents and Settings\\Administrator\\\u684C\u9762\\Wukong_T8_fat.jar
+manifest.mergeall=true
+manifest.mainclass=com.wukong.t8.action.EntryAction
+manifest.file=<createnew>
+jarname.isextern=true
+onejar.expand=
+excludes=
+includes=

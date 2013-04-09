@@ -43,7 +43,7 @@ public class EntryAction extends ActionSupport implements BaseAction {
 	private static Set<Opml4channel> allO4C=null;
 //	private static Set<String> allFeedFK_URLs=null;
 	private static Set<String> allEntryGuids=null;
-	private Logger logger=getLogger();
+//	private Logger logger=getLogger();
 	private static ExecutorService executorService2=Executors.newFixedThreadPool(THREAD_NUMBER, new ThreadFactory(){
 
 		public Thread newThread(Runnable r) {
@@ -72,15 +72,15 @@ public class EntryAction extends ActionSupport implements BaseAction {
 	}
 	
 	public String toSnatch(){
-		if(!isFirst){
+//		if(!isFirst){
 			init();  //only once
-			isFirst=!isFirst;
-		}
+//			isFirst=!isFirst;
+//		}
 		
 		if(allO4C!=null&&allO4C.size()!=0){
 			final Iterator<Opml4channel> iterator=allO4C.iterator();
 			i++;
-			logger.fatal(new Date()+"抓取次数="+i);
+//			logger.fatal(new Date()+"抓取次数="+i);
 //			System.out.println("Count=="+i);
 			while(iterator.hasNext()){
 				executorService2.submit(new Runnable(){
@@ -120,10 +120,10 @@ public class EntryAction extends ActionSupport implements BaseAction {
 
 		initO4CSet();
 		initEntrySet();
-		
-		Utils.initHTMLLogger(logger, Utils.getWebRootPath()+"SnatchLog.html", true, Level.DEBUG);
-		logger.info("Entry之toSnatch初始化完成-only once");
-		o4cAction.mainToSnatch();
+		System.out.println("初始化");
+//		Utils.initHTMLLogger(logger, Utils.getWebRootPath()+"SnatchLog.html", true, Level.DEBUG);
+//		logger.info("Entry之toSnatch初始化完成-only once");
+//		o4cAction.mainToSnatch();
 	}
 	
 	@SuppressWarnings("unchecked")
@@ -204,7 +204,7 @@ public class EntryAction extends ActionSupport implements BaseAction {
 		if(entries!=null){
 			session.put("entries", entries);
 			session.put("entrySize", entries.size());
-			logger.info("执行了一次时间查询");
+//			logger.info("执行了一次时间查询");
 			return "toEntries";
 		}else{
 			return "NoKeywords";
@@ -217,4 +217,8 @@ public class EntryAction extends ActionSupport implements BaseAction {
 		return Logger.getLogger(EntryAction.class);
 	}
 	
+	public static void main(String[] args){
+		EntryAction action=new EntryAction();
+		action.toSnatch();
+	}
 }

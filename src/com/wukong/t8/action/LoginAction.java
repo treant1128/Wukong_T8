@@ -19,6 +19,7 @@ import com.opensymphony.xwork2.ActionSupport;
 import com.wukong.t4.common.DBToolkit;
 import com.wukong.t4.common.DESUtils;
 import com.wukong.t8.dao.ChannelDAO;
+import com.wukong.t8.dao.EntryDAO;
 import com.wukong.t8.pojo.Channel;
 import com.wukong.t8.utils.CheckLoginInterceptor;
 import com.wukong.t8.utils.Utils;

@@ -4,7 +4,10 @@ import com.wukong.t8.pojo.Entry;
 import com.wukong.t8.pojo.Opml4channel;
 
 import java.sql.Timestamp;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
 import org.hibernate.LockMode;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -245,18 +248,51 @@ public class EntryDAO extends BaseHibernateDAO {
 		return all;
 	}
 	
+	/**
+	 * 返回每页的Entry
+	 * @param opmlOutlineXmlUrl
+	 * @param page
+	 * @param rowsPerPage
+	 * @return
+	 */
 	@SuppressWarnings("unchecked")
-	public List<Entry> getReferencedEntriesByOpml4channel(String opmlOutlineXmlUrl){
+	public List<Entry> getReferencedEntriesByOpml4channel(String opmlOutlineXmlUrl, int page, int rowsPerPage){
+		Session session=getSession();
 		String hql="from Entry as entry where entry.opml4channel.opmlOutlineXmlUrl = '"+opmlOutlineXmlUrl+"' order by entry.entryId desc";
-		
-		Session session = getSession();
 		Query query = session.createQuery(hql);
+		query.setFirstResult((page-1)*rowsPerPage); 
+		query.setMaxResults(rowsPerPage);
 		List<Entry> all = query.list();
-//		for (Entry bookInfo : all) {
-//			bookInfo.getBookCategory().getCname();
-//		}
 		session.close();
 		return all;
+	}
+	
+	/**
+	 * 总页数
+	 * @param rowsPerPage
+	 * @return
+	 */
+	public Map<String, Integer> getEntryNumInfo(String opmlOutlineXmlUrl, int rowsPerPage){
+		Map<String, Integer> map=new HashMap<String, Integer>();
+		int rows = getEntryNum(opmlOutlineXmlUrl);
+		map.put("totalRows", rows);
+		if(rows%rowsPerPage==0){
+			map.put("totalPages", rows/rowsPerPage);
+		}else{
+			map.put("totalPages", rows/rowsPerPage+1);
+		}
+		return map;
+	}
+	
+	private int getEntryNum(String opmlOutlineXmlUrl){
+		int rows=0;
+		Session session=getSession();
+		String hql="select count(*) from Entry as entry where entry.opml4channel.opmlOutlineXmlUrl = '"+opmlOutlineXmlUrl+"'";
+		Query query=session.createQuery(hql);
+//		rows=(int) ((Long)query.iterate().next()).longValue();  //two ways to obtain the Integer counts
+		rows=((Long)query.uniqueResult()).intValue();
+		session.close();
+		return rows;
 	}
 	
 	public void updateByGuid(String title, String imgUrl, int priority, String guid){

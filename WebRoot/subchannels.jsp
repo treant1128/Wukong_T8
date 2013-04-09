@@ -171,7 +171,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<h2> 
 							<a href="javascript:skipToSubChannelEntry('<s:property value="#session.o4cList[#status.index*3+1].opmlOutlineXmlUrl"/>')" >
 								<s:property value="#session.o4cList[#status.index*3+1].opmlOutlineTitle"/></a><br>
-						<!--  <a href=<s:property value="#session.feedList[#status.index*3+1].feedImageLink"/> target="_blank">
+						<!--    <a href=<s:property value="#session.feedList[#status.index*3+1].feedImageLink"/> target="_blank">
 								<small><s:property value="#session.feedList[#status.index*3+1].feedImageLink"/></small></a>  -->
 						</h2>
 						<p><br/>
@@ -237,7 +237,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 //			alert(url);
 //			alert(encodeURIComponent(url));
 //			alert(encodeURIComponent(encodeURIComponent(url)));
-			window.location.href="opml4channelAction!toSubChannelEntry?opmlOutlineXmlUrl="+encodeURIComponent(encodeURIComponent(url));
+			window.location.href="opml4channelAction!toSubChannelEntry?opmlOutlineXmlUrl="+encodeURIComponent(encodeURIComponent(url))+"&pageKey=1st";
 		}
 		function showMainChannels(url){
 	//		alert(url);

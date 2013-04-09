@@ -81,7 +81,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
   </head>
 
-  <body>
+  <body onload="markCurrentPage()">
 	<div id="top"></div>
 	<div id="container">
 	        <!-- Navbar ================================================== -->
@@ -155,28 +155,28 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 	<ul class="breadcrumb">
 	  <li><a href="index.jsp">
-	  	<FONT face=楷体_GB2312 color="#9932CC" size=5><STRONG>主频道</STRONG></FONT></a><span class="divider">&gt;&gt;</span></li>
+	  	<FONT face=楷体_GB2312 color="#9932CC" size=5><STRONG>主频道列表</STRONG></FONT></a><span class="divider">&gt;&gt;</span></li>
 	  <li><a href="subchannels.jsp">
-	  	<FONT face=楷体_GB2312 color="#4169E5" size=5><STRONG>子频道</STRONG></FONT></a><span class="divider">&gt;&gt;</span></li>
+	  	<FONT face=楷体_GB2312 color="#4169E5" size=5><STRONG>子频道列表</STRONG></FONT></a><span class="divider">&gt;&gt;</span></li>
 	  <li class="active">
-	  	<FONT face=楷体_GB2312 color="#ff6600" size=5><STRONG>当前页面记录数目&lt;</STRONG></FONT>
-	  	<FONT face=楷体_GB2312 color="#ff6600" size=5><STRONG><s:property value="#session.entrySize"/></STRONG></FONT>
-	  	<FONT face=楷体_GB2312 color="#ff6600" size=5><STRONG>&gt;条</STRONG></FONT></li>
+	  	<FONT face=楷体_GB2312 color="#000000" size=5><STRONG>第<s:property value="#session.currentPage"/>/<s:property value="#session.totalPages"/>页</STRONG></FONT>
+	  	<FONT face=楷体_GB2312 color="#ff6600" size=5><STRONG>&nbsp;共&lt;</STRONG></FONT>
+	  	<FONT face=楷体_GB2312 color="#000000" size=5><STRONG><s:property value="#session.totalRows"/></STRONG></FONT>
+	  	<FONT face=楷体_GB2312 color="#ff6600" size=5><STRONG>&gt;条记录</STRONG></FONT></li>
 	</ul>
 
-
-	  <div class="pagination pagination-large">
+	<div class="pagination pagination-large">
 		  <ul>
-		    <li><a href="#">上一页</a></li>
-		    <li class="active"><a href="#">1</a></li>
-		    <li><a href="#">2</a></li>
-		    <li><a href="#">3</a></li>
-		    <li><a href="#">4</a></li>
-		    <li><a href="#">5</a></li>
-		    <li><a href="#">下一页</a></li>
+		    <li><a id="last" href="javascript:skipToWhichPage('last')">上一页</a></li>
+		    <li><a id="1st" href="javascript:skipToWhichPage('1st')">1</a></li>
+		    <li><a id="2nd" href="javascript:skipToWhichPage('2nd')">2</a></li>
+		    <li><a id="3rd" href="javascript:skipToWhichPage('3rd')">3</a></li>
+		    <li><a id="4th" href="javascript:skipToWhichPage('4th')">4</a></li>
+		    <li><a id="5th" href="javascript:skipToWhichPage('5th')">5</a></li>
+		    <li><a id="next" href="javascript:skipToWhichPage('next')">下一页</a></li>
 		  </ul>
 	</div>
-	 	
+	
    	<div class="container-fluid">
 		<div class="row-fluid">
 			<div class="span12">
@@ -212,7 +212,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						  		
 						  			<td><s:property value="@com.wukong.t8.utils.Utils@cutOffMillis(#element.entryPubDate)" /></td>
 						  			<td>
-						  				<a href="#myModal" role="button" class="btn btn-primary btn-small" data-toggle="modal">提&nbsp;交</a>
+						  				<a href="#myModal" class="btn btn-primary btn-small" data-toggle="modal">提&nbsp;交</a>
 						  			</td>
 						  		</tr>
    							</s:iterator>
@@ -222,19 +222,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</div>
 		</div>   	
    	</div>
-   	
-   	<div class="pagination pagination-large">
+ 	
+   	 <div class="pagination pagination-large">
 		  <ul>
-		    <li><a href="#">上一页</a></li>
-		    <li class="active"><a href="#">1</a></li>
-		    <li><a href="#">2</a></li>
-		    <li><a href="#">3</a></li>
-		    <li><a href="#">4</a></li>
-		    <li><a href="#">5</a></li>
-		    <li><a href="#">下一页</a></li>
+		    <li><a id="llast" href="javascript:skipToWhichPage('last')">上一页</a></li>
+		    <li><a id="11st" href="javascript:skipToWhichPage('1st')">1</a></li>
+		    <li><a id="22nd" href="javascript:skipToWhichPage('2nd')">2</a></li>
+		    <li><a id="33rd" href="javascript:skipToWhichPage('3rd')">3</a></li>
+		    <li><a id="44th" href="javascript:skipToWhichPage('4th')">4</a></li>
+		    <li><a id="55th" href="javascript:skipToWhichPage('5th')">5</a></li>
+		    <li><a id="nnext" href="javascript:skipToWhichPage('next')">下一页</a></li>
 		  </ul>
-	</div>
-	
+	</div>	
    	 
    	<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
    		<div class="modal-header">
@@ -247,9 +246,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
    		
    	</div>  
    
-   	
-  
-   	
    	
 	    <div id="footer-spacer"></div>   
 	</div>
@@ -277,6 +273,70 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		
 		function showLog(){
 			window.location.href="channelAction!toLog";
+		}
+		
+		function skipToWhichPage(id){
+			document.getElementById("last").style.backgroundColor="white";
+			document.getElementById("1st").style.backgroundColor="white";
+			document.getElementById("2nd").style.backgroundColor="white";
+			document.getElementById("3rd").style.backgroundColor="white";
+			document.getElementById("4th").style.backgroundColor="white";
+			document.getElementById("5th").style.backgroundColor="white";
+			document.getElementById("next").style.backgroundColor="white";
+			
+			document.getElementById("llast").style.backgroundColor="white";
+			document.getElementById("11st").style.backgroundColor="white";
+			document.getElementById("22nd").style.backgroundColor="white";
+			document.getElementById("33rd").style.backgroundColor="white";
+			document.getElementById("44th").style.backgroundColor="white";
+			document.getElementById("55th").style.backgroundColor="white";
+			document.getElementById("nnext").style.backgroundColor="white";
+			
+			var element=document.getElementById(id);
+			element.style.backgroundColor="olive";
+//			var pageId=0;
+//			if(id.localeCompare("last")==0){
+//				pageId=-111;
+//			}else if(id.localeCompare("1st")==0){
+//				pageId=1;
+//			}else if(id.localeCompare("2nd")==0){
+//				pageId=2;
+//			}else if(id.localeCompare("3rd")==0){
+//				pageId=3;
+//			}else if(id.localeCompare("4th")==0){
+//				pageId=4;
+//			}else if(id.localeCompare("5th")==0){
+//				pageId=5;
+//			}else if(id.localeCompare("next")==0){
+//				pageId=111;
+//			}
+//			alert(pageId);
+			window.location.href="opml4channelAction!toSubChannelEntry?opmlOutlineXmlUrl="
+			+encodeURIComponent(encodeURIComponent('<%=session.getAttribute("opmlOutlineXmlUrl")%>'))
+			+"&pageKey="+id;
+		}
+		
+		function markCurrentPage(){
+			var currentPage=<%=session.getAttribute("currentPage")%>;
+			if(currentPage==1){
+				document.getElementById("1st").style.backgroundColor="olive";
+				document.getElementById("11st").style.backgroundColor="olive";
+			}else if(currentPage==2){
+				document.getElementById("2nd").style.backgroundColor="olive";
+				document.getElementById("22nd").style.backgroundColor="olive";
+			}else if(currentPage==3){
+				document.getElementById("3rd").style.backgroundColor="olive";
+				document.getElementById("33rd").style.backgroundColor="olive";
+			}else if(currentPage==4){
+				document.getElementById("4th").style.backgroundColor="olive";
+				document.getElementById("44th").style.backgroundColor="olive";
+			}else if(currentPage==5){
+				document.getElementById("5th").style.backgroundColor="olive";
+				document.getElementById("55th").style.backgroundColor="olive";
+			}else if(currentPage>5){
+				document.getElementById("next").style.backgroundColor="olive";
+				document.getElementById("nnext").style.backgroundColor="olive";
+			}
 		}
 	</script>   
 	
