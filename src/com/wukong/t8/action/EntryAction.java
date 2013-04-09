@@ -36,7 +36,7 @@ public class EntryAction extends ActionSupport implements BaseAction {
 	private List<Entry> entries;
 	private static EntryDAO entryDAO=EntryDAO.getInstance();
 	public static Opml4channelAction o4cAction=new Opml4channelAction();
-	private static int i=0;
+//	private static int i=0;
 //	private static FeedDAO feedDAO=FeedDAO.getInstance();
 //	private static List<String> allFeedTitle=null;
 	
@@ -44,15 +44,15 @@ public class EntryAction extends ActionSupport implements BaseAction {
 //	private static Set<String> allFeedFK_URLs=null;
 	private static Set<String> allEntryGuids=null;
 //	private Logger logger=getLogger();
-	private static ExecutorService executorService2=Executors.newFixedThreadPool(THREAD_NUMBER, new ThreadFactory(){
-
-		public Thread newThread(Runnable r) {
-			// TODO Auto-generated method stub
-			return new Thread(r);
-		}
-		
-	});
-	private static boolean isFirst=false;
+//	private static ExecutorService executorService2=Executors.newFixedThreadPool(THREAD_NUMBER, new ThreadFactory(){
+//
+//		public Thread newThread(Runnable r) {
+//			// TODO Auto-generated method stub
+//			return new Thread(r);
+//		}
+//		
+//	});
+//	private static boolean isFirst=false;
 	private String property;
 	
 	public List<Entry> getEntries() {
@@ -79,18 +79,18 @@ public class EntryAction extends ActionSupport implements BaseAction {
 		
 		if(allO4C!=null&&allO4C.size()!=0){
 			final Iterator<Opml4channel> iterator=allO4C.iterator();
-			i++;
+
 //			logger.fatal(new Date()+"抓取次数="+i);
 //			System.out.println("Count=="+i);
 			while(iterator.hasNext()){
-				executorService2.submit(new Runnable(){
-
-					public void run() {
+//				executorService2.submit(new Runnable(){
+//
+//					public void run() {
 						// TODO Auto-generated method stub
 						saveEntry(iterator.next());
-					}
-					
-				});
+//					}
+//					
+//				});
 			}
 		}
 		return SUCCESS;
@@ -104,8 +104,8 @@ public class EntryAction extends ActionSupport implements BaseAction {
 		if(o4c!=null){			
 			List<Entry> entryList=EntryParser.getEntryListByOpmlOutlineXmlUrl(o4c);
 			for(Entry entry:entryList){//System.out.println("==="+entry.getEntryTitle());
-				if(allEntryGuids.add(entry.getEntryGuid())){
-					entryDAO.save(entry);
+				if(allEntryGuids.add(entry.getEntryGuid())){// i++;
+					entryDAO.save(entry); //  System.out.println("增加的i=="+i);
 				}
 			}
 		}
