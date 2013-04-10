@@ -46,14 +46,14 @@ public class Opml4channelAction extends ActionSupport implements BaseAction {
 	private String opmlOutlineXmlUrl;
 	
 	private static int TIMER_INTERVAL=3*3600*1000;
-//	private static int TIMER_DELAY=5000;
+	private static int TIMER_DELAY=5000;
 	private static int currentPage=1;
 	private String pageKey="1st";
 	private static String tempURL="";
 	private int totalPages=0;
 	private int totalRows=0;
 	private static final int NUM_PER_PAGE=50;
-//	private static boolean isAutomatic=true;
+	private static boolean isAutomatic=true;
 	private static EntryAction entryAction=null;
 	private static EntryDAO entryDAO=null;
 	private int errorCount=0;
@@ -112,32 +112,32 @@ public class Opml4channelAction extends ActionSupport implements BaseAction {
 		entryDAO=EntryDAO.getInstance();
 	}
 	
-//	public String toSnatch(){
-//		init();
-//		logger.info(new Date()+"->初始化完成");
-//		
-//		if(isAutomatic){
-//			
-//			getTimer().schedule(new TimerTask(){
-//
-//				@Override
-//				public void run() {
-//					// TODO Auto-generated method stub
-//					logger.info(new Date()+"->开始mainToSnatch");
-//					
-//					mainToSnatch();   
-//					
-//				}
-//
-//			}, TIMER_DELAY, TIMER_INTERVAL);
-//
-//		}else{		
-//			logger.info(LoginAction.nickname+" 改为手动抓取");
-//			mainToSnatch();
-//		}
-//		
-//		return SUCCESS;
-//	}
+	public String toSnatch(){
+		init();
+		logger.info(new Date()+"->初始化完成");
+		
+		if(isAutomatic){
+			
+			getTimer().schedule(new TimerTask(){
+
+				@Override
+				public void run() {
+					// TODO Auto-generated method stub
+					logger.info(new Date()+"->开始mainToSnatch");
+					
+					mainToSnatch();   
+					
+				}
+
+			}, TIMER_DELAY, TIMER_INTERVAL);
+
+		}else{		
+			logger.info(LoginAction.nickname+" 改为手动抓取");
+			mainToSnatch();
+		}
+		
+		return SUCCESS;
+	}
 	
 	/**
 	 * 执行Snatch的主函数
@@ -147,7 +147,7 @@ public class Opml4channelAction extends ActionSupport implements BaseAction {
 
 		if(initperiodically()&& o4cFuture.isDone()){ //block until retrieve result 
 			logger.info(new Date()+"->去EntryAction->Snatch");
-//			entryAction.toSnatch();
+			entryAction.toSnatch();  System.out.println("+%%%%********");
 		}else{
 			errorCount++;
 			logger.error("ErrorCount="+errorCount);
@@ -445,38 +445,42 @@ public class Opml4channelAction extends ActionSupport implements BaseAction {
 		Utils.initHTMLLogger(logger, loggerPath, true, Level.DEBUG);
 	}
 
-//	public static Timer getTimer(){
-//		if(timer==null){
-//			timer=new Timer();
-//		}
-//		return timer;
-//	}
+	public static Timer getTimer(){
+		if(timer==null){
+			timer=new Timer();
+		}
+		return timer;
+	}
 
 	public Logger getLogger() {
 		// TODO Auto-generated method stub
 		return Logger.getLogger(Opml4channelAction.class);
 	}
 	
-//	public String setTimeDelay(){
-//		if(TIMER_INTERVAL!=0){
-//			logger.fatal(LoginAction.nickname+"已于"+new Date()+"设定抓取间隔为"+TIMER_INTERVAL+"小时");
-//			TIMER_INTERVAL*=3600*1000;  //hour--> Milliseconds
-//			TIMER_DELAY=TIMER_INTERVAL;
-//			if(timer!=null){
-//				timer.cancel();
-//				timer=null;
-//			}
-//			toSnatch();
-//		}else{
-//			isAutomatic=false;
-//			if(timer!=null){
-//				timer.cancel();
-//				timer=null;
-//			}
-//			logger.fatal(LoginAction.nickname+"已于"+new Date()+"设定抓取模式为手动");
-//		}
-//		return "setSnatchInterval";
-//	}
+	/**
+	 * 该功能暂时关闭
+	 * @return
+	 */
+	public String setTimeDelay(){
+		if(TIMER_INTERVAL!=0){
+			logger.fatal(LoginAction.nickname+"已于"+new Date()+"设定抓取间隔为"+TIMER_INTERVAL+"小时");
+			TIMER_INTERVAL*=3600*1000;  //hour--> Milliseconds
+			TIMER_DELAY=TIMER_INTERVAL;
+			if(timer!=null){
+				timer.cancel();
+				timer=null;
+			}
+			toSnatch();
+		}else{
+			isAutomatic=false;
+			if(timer!=null){
+				timer.cancel();
+				timer=null;
+			}
+			logger.fatal(LoginAction.nickname+"已于"+new Date()+"设定抓取模式为手动");
+		}
+		return "setSnatchInterval";
+	}
 	
 	public void verifyPageKey(String pageKey){
 		if(pageKey.equals("last")&&Opml4channelAction.currentPage>1){

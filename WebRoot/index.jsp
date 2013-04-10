@@ -439,7 +439,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
        </div>
    		             
             <div id="snatchOperation" class="row-fluid">
-            	<div class="span4">
+             	<div class="span4">
             		<h3>自动抓取时间间隔设置</h3>
             		<select name="snatchInterval" id="snatchIntervalId" class="input_text_1" 
             			onchange="getSnatchInterval(this.options[this.options.selectedIndex].value)">
@@ -466,16 +466,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<option value="100">100天</option>
 					</select> 
             	<div class="alert alert-error">
-  							<button type="button" class="close" data-dismiss="alert">&times;</button>
-  							<strong>提示!</strong> 关注度为0~9999的正整数.
-						</div>
-           		</div>
-          		 <div class="span3">
+  						<button type="button" class="close" data-dismiss="alert">&times;</button>
+  						<strong>提示!</strong> 关注度为0~9999的正整数.
+				</div>
+           		</div>   
+          <!-- 	<div class="span3">
 	            	<p><a id="manualSnatch" href="entryAction!toSnatch" class="btn btn-primary btn-large" data-loading-text="正在抓取...">立即手动抓取&raquo;</a></p>
 	        	</div>
-            
+           -->
             </div>
             
+            <div class="span3 offset6">
+	            	<p><a id="manualSnatch" href="entryAction!toSnatch" class="btn btn-primary btn-large" data-loading-text="正在抓取...">立即手动抓取&raquo;</a></p>
+	        </div>
            
             
         </div><!--/span-->

@@ -34,7 +34,7 @@ public class LoginAction extends ActionSupport implements SessionAware, BaseActi
 	public static List<Channel> channels=null;
 //	private String loggerPath=null;
 	private Logger logger=getLogger();
-
+	private static Opml4channelAction o4cAction=new Opml4channelAction();
 //	public static int TIME_DELAY=3*3600*1000; // one hour -> Milliseconds
 	
 	public static String nickname=null;
@@ -65,7 +65,7 @@ public class LoginAction extends ActionSupport implements SessionAware, BaseActi
 
 		Utils.initHTMLLogger(logger, Utils.getWebRootPath()+"SnatchLog.html", true, Level.DEBUG);
 		Connection conn  = DBToolkit.getConnection();
-		if(conn==null){System.out.println("链接失败");}
+//		if(conn==null){System.out.println("链接失败");}
 		StringBuffer sql = new StringBuffer("select * from operator where name = '");  //table operator
 		sql.append(userName).append("' and password = '").append(userPassword).append("'");
 		ResultSet rs = DBToolkit.executeQuery(conn, sql.toString());
@@ -143,11 +143,12 @@ public class LoginAction extends ActionSupport implements SessionAware, BaseActi
 //				TIME_DELAY=5000;
 				logger.info(nickname+"--第一次登录"+new Date()+",2S后开始抓取");
 				
+				o4cAction.toSnatch();
 			}else {
 				long interval=System.currentTimeMillis()-Long.valueOf(lastLogin);
 				logger.info(nickname+"--距上次登录间隔"+interval+"毫秒");
 			}
-						
+				
 			writer.write(Long.toString(System.currentTimeMillis()));
 		} catch (IOException e1) {
 			// TODO Auto-generated catch block

@@ -35,24 +35,24 @@ public class EntryAction extends ActionSupport implements BaseAction {
 	private HttpServletRequest mRequest;
 	private List<Entry> entries;
 	private static EntryDAO entryDAO=EntryDAO.getInstance();
-	public static Opml4channelAction o4cAction=new Opml4channelAction();
-//	private static int i=0;
+//	public static Opml4channelAction o4cAction=new Opml4channelAction();
+	private static int i=0;
 //	private static FeedDAO feedDAO=FeedDAO.getInstance();
 //	private static List<String> allFeedTitle=null;
-	
+
 	private static Set<Opml4channel> allO4C=null;
 //	private static Set<String> allFeedFK_URLs=null;
 	private static Set<String> allEntryGuids=null;
-//	private Logger logger=getLogger();
-//	private static ExecutorService executorService2=Executors.newFixedThreadPool(THREAD_NUMBER, new ThreadFactory(){
-//
-//		public Thread newThread(Runnable r) {
-//			// TODO Auto-generated method stub
-//			return new Thread(r);
-//		}
-//		
-//	});
-//	private static boolean isFirst=false;
+	private Logger logger=getLogger();
+	private static ExecutorService executorService2=Executors.newFixedThreadPool(THREAD_NUMBER, new ThreadFactory(){
+
+		public Thread newThread(Runnable r) {
+			// TODO Auto-generated method stub
+			return new Thread(r);
+		}
+		
+	});
+	private static boolean isFirst=false;
 	private String property;
 	
 	public List<Entry> getEntries() {
@@ -72,26 +72,26 @@ public class EntryAction extends ActionSupport implements BaseAction {
 	}
 	
 	public String toSnatch(){
-//		if(!isFirst){
+		if(!isFirst){
 			init();  //only once
-//			isFirst=!isFirst;
-//		}
+			isFirst=!isFirst;
+		}
 		
 		if(allO4C!=null&&allO4C.size()!=0){
 			final Iterator<Opml4channel> iterator=allO4C.iterator();
-
-//			logger.fatal(new Date()+"抓取次数="+i);
-//			System.out.println("Count=="+i);
+			
 			while(iterator.hasNext()){
-//				executorService2.submit(new Runnable(){
-//
-//					public void run() {
+				executorService2.submit(new Runnable(){
+
+					public void run() {
 						// TODO Auto-generated method stub
 						saveEntry(iterator.next());
-//					}
-//					
-//				});
+					}
+					
+				});
 			}
+			i++;
+			logger.fatal(new Date()+"抓取次数="+i);
 		}
 		return SUCCESS;
 	}
@@ -105,7 +105,7 @@ public class EntryAction extends ActionSupport implements BaseAction {
 			List<Entry> entryList=EntryParser.getEntryListByOpmlOutlineXmlUrl(o4c);
 			for(Entry entry:entryList){//System.out.println("==="+entry.getEntryTitle());
 				if(allEntryGuids.add(entry.getEntryGuid())){// i++;
-					entryDAO.save(entry); //  System.out.println("增加的i=="+i);
+					entryDAO.save(entry); //  System.out.println("增加的");
 				}
 			}
 		}
@@ -120,9 +120,9 @@ public class EntryAction extends ActionSupport implements BaseAction {
 
 		initO4CSet();
 		initEntrySet();
-		System.out.println("初始化");
-//		Utils.initHTMLLogger(logger, Utils.getWebRootPath()+"SnatchLog.html", true, Level.DEBUG);
-//		logger.info("Entry之toSnatch初始化完成-only once");
+		
+		Utils.initHTMLLogger(logger, Utils.getWebRootPath()+"SnatchLog.html", true, Level.DEBUG);
+		logger.info("Entry之toSnatch初始化完成, Opml数量="+allO4C.size()+",Entry数量="+allEntryGuids.size());
 //		o4cAction.mainToSnatch();
 	}
 	
@@ -204,7 +204,7 @@ public class EntryAction extends ActionSupport implements BaseAction {
 		if(entries!=null){
 			session.put("entries", entries);
 			session.put("entrySize", entries.size());
-//			logger.info("执行了一次时间查询");
+			logger.info(LoginAction.nickname+"执行了一次时间查询");
 			return "toEntries";
 		}else{
 			return "NoKeywords";
