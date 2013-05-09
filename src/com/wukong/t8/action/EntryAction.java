@@ -122,7 +122,7 @@ public class EntryAction extends ActionSupport implements BaseAction {
 		initEntrySet();
 		
 		Utils.initHTMLLogger(logger, Utils.getWebRootPath()+"SnatchLog.html", true, Level.DEBUG);
-		logger.info("Entry之toSnatch初始化完成, Opml数量="+allO4C.size()+",Entry数量="+allEntryGuids.size());
+		logger.info("Entry之toSnatch初始化完成, 当前Opml数量="+allO4C.size()+",Entry数量="+allEntryGuids.size());
 //		o4cAction.mainToSnatch();
 	}
 	
@@ -214,6 +214,9 @@ public class EntryAction extends ActionSupport implements BaseAction {
 
 	public Logger getLogger() {
 		// TODO Auto-generated method stub
+		if(logger!=null){
+			return logger;
+		}
 		return Logger.getLogger(EntryAction.class);
 	}
 	

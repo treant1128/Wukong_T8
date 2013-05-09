@@ -13,6 +13,7 @@ import java.net.URLConnection;
 import java.sql.Timestamp;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Properties;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -26,13 +27,22 @@ import com.wukong.t8.pojo.Repository;
 
 public class SubmitAction extends ActionSupport {
 
-	private static final String UUID_URL_GET="http://audits.wukong.com/uuid";
-	private static final String TASK_URL_POST="http://audits.wukong.com/task_add";
-//  My Test Host URL Just Change The Port Without Nginx
-//	private static final String UUID_URL_GET="http://220.181.49.164:8001/uuid";
-//	private static final String TASK_URL_POST="http://220.181.49.164:8001/task_add";
+	private static String UUID_URL_GET=null;
+	private static String TASK_URL_POST=null;
 	private HttpServletRequest mRequest;
+	private static Properties props=new Properties();
+	
+	static{
+		try {
+			props.load(SubmitAction.class.getResourceAsStream("/properties/audit.url.properties"));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
+		UUID_URL_GET=props.getProperty("shandong.getUUID.url");
+		TASK_URL_POST=props.getProperty("shandong.postTask.url");
+	}
 	public String toSubmit(){
 		mRequest=ServletActionContext.getRequest();
 		
@@ -40,6 +50,12 @@ public class SubmitAction extends ActionSupport {
 			updateEntry();
 			return "modifyParamsSuccess";
 		}else{
+			
+			if(LoginAction.nickname.contains("anhui")){
+				UUID_URL_GET=props.getProperty("anhui.getUUID.url");
+				TASK_URL_POST=props.getProperty("anhui.postTask.url");
+			}
+			
 			String uuid=getUUIDByGet(UUID_URL_GET, "UTF-8");
 			if(uuid==null){
 				return ERROR;

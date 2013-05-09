@@ -34,6 +34,7 @@ public class LoginAction extends ActionSupport implements SessionAware, BaseActi
 	public static List<Channel> channels=null;
 //	private String loggerPath=null;
 	private Logger logger=getLogger();
+	private static int loggerCount=0;
 	private static Opml4channelAction o4cAction=new Opml4channelAction();
 //	public static int TIME_DELAY=3*3600*1000; // one hour -> Milliseconds
 	
@@ -74,7 +75,7 @@ public class LoginAction extends ActionSupport implements SessionAware, BaseActi
 				String name=rs.getString("name");
 				String password=rs.getString("password");
 				region=rs.getString("region");
-				power=rs.getString("upower");   System.out.println("POWER="+power);
+				power=rs.getString("upower"); //  System.out.println("POWER="+power);
 				if(name==null||password==null){
 					return "LoginFailture";
 				}
@@ -90,7 +91,12 @@ public class LoginAction extends ActionSupport implements SessionAware, BaseActi
 					e.printStackTrace();
 				}
 				
-				nickname=rs.getString("region")+"-"+name;    //field-->region&&name
+				try {
+					nickname=new String(rs.getString("region").getBytes(), "UTF-8")+"-"+name;
+				} catch (UnsupportedEncodingException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}    //field-->region&&name
 				session.put(CheckLoginInterceptor.USER_SESSION_KEY, nickname);
 				//加载频道列表
 				channels=ChannelDAO.getInstance().findAll();
@@ -106,6 +112,8 @@ public class LoginAction extends ActionSupport implements SessionAware, BaseActi
 		} finally{
 			DBToolkit.closeConnection(conn, null, rs);
 		}
+		
+		loggerCount=0;
 		return "LoginSuccess";
 	}
 	
@@ -114,25 +122,6 @@ public class LoginAction extends ActionSupport implements SessionAware, BaseActi
 		this.session=session;
 	}
 	
-	/**
-	 * 跟踪登录信息
-	 */
-//	public Logger getLogger() {
-//		// TODO Auto-generated method stub
-//		Logger logger=Logger.getLogger(LoginAction.class);
-//		SimpleLayout layout=new SimpleLayout();
-//		FileAppender appender=null;
-//		
-//		try {
-//			appender=new FileAppender(layout, loggerPath, true);//true to append
-//		} catch (IOException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-//		logger.addAppender(appender);
-//		logger.setLevel((Level)Level.DEBUG);
-//		return logger;
-//	}
 	private void initTimeDelay(){
 		String bakPath=Utils.getWebRootPath()+"lastLoginTime.bak";
 		FileWriter writer=null;
@@ -146,7 +135,10 @@ public class LoginAction extends ActionSupport implements SessionAware, BaseActi
 				o4cAction.toSnatch();
 			}else {
 				long interval=System.currentTimeMillis()-Long.valueOf(lastLogin);
-				logger.info(nickname+"--距上次登录间隔"+interval+"毫秒");
+				if(loggerCount==0){
+					logger.info(nickname+"--距上一位访问间隔"+interval+"毫秒");
+					loggerCount++;
+				}
 			}
 				
 			writer.write(Long.toString(System.currentTimeMillis()));
@@ -172,6 +164,9 @@ public class LoginAction extends ActionSupport implements SessionAware, BaseActi
 	
 	public Logger getLogger() {
 		// TODO Auto-generated method stub
+		if(logger!=null){
+			return logger;
+		}
 		return Logger.getLogger(LoginAction.class);
 	}
 }

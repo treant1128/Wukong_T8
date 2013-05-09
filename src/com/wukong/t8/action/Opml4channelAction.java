@@ -60,7 +60,7 @@ public class Opml4channelAction extends ActionSupport implements BaseAction {
 	private Logger logger=getLogger();
 	
 	private Future<String> o4cFuture;
-//	private Future<Integer> feedFuture;
+
 	private static Opml4channelDAO o4cDAO=Opml4channelDAO.getInstance();
 	private static ExecutorService executorService = Executors.newCachedThreadPool(new ThreadFactory(){
 

@@ -28,7 +28,7 @@ public class DBToolkit {
 			e.printStackTrace();
 		}
 		
-		url = (props.getProperty("datasource.sp049.jdbc.url"));  // System.out.println("UUURRRLLL=="+url);
+		url = (props.getProperty("datasource.sp049.jdbc.url"));
         username = (props.getProperty("datasource.sp049.jdbc.username"));
         password = (props.getProperty("datasource.sp049.jdbc.password"));
         //¼ÓÔØÇý¶¯

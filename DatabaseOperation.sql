@@ -120,6 +120,7 @@ INSERT INTO operator (name, region, upower, password, comment) VALUES ('demo', '
 
 INSERT INTO operator (name, region, upower, password, comment) VALUES ('w', 'Ë÷ÂíÀï', 'w-s', 'w', '');
 
+INSERT INTO operator (name, region, upower, password, comment) VALUES ('anhui', '°²»Õ', 's', 'anhui', '');
 
 -------------Drop Table Clause----------------
 --delete tables
