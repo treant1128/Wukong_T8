@@ -81,10 +81,12 @@
         <echo message="${ant.project.name}: ${ant.file}"/>
         <javac debug="true" debuglevel="${debuglevel}" destdir="WebRoot/WEB-INF/classes" source="${source}" target="${target}">
             <src path="src"/>
+        	<compilerarg line="-encoding GBK "/>   
             <classpath refid="Wukong_T8.classpath"/>
         </javac>
         <javac debug="true" debuglevel="${debuglevel}" destdir="WebRoot/WEB-INF/classes" source="${source}" target="${target}">
             <src path="config"/>
+        	<compilerarg line="-encoding GBK "/>   
             <classpath refid="Wukong_T8.classpath"/>
         </javac>
     </target>
