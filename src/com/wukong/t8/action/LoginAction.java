@@ -24,7 +24,7 @@ import com.wukong.t8.pojo.Channel;
 import com.wukong.t8.utils.CheckLoginInterceptor;
 import com.wukong.t8.utils.Utils;
 
-public class LoginAction extends ActionSupport implements SessionAware, BaseAction {
+public class LoginAction extends ActionSupport implements SessionAware{
 	public static final String key = "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCAAzp8YDDp7y3OmWeoobO6YuR3DF1gougKsY3RulBwlTQqQz5HuqxgkDDVNUFlfExWMe5mEr0qdZ1n/vLepLcT6thAHRadi+CfhypT10B0HDblyB7W6OIREZEQErrOSLcc9Knjn3tL41yxemVp0XK0C3MG6q1ikwWQXNLW6nPXaQIDAQAB";
 	public static String secretKeys=null;
 	public String userName=null;
@@ -33,7 +33,7 @@ public class LoginAction extends ActionSupport implements SessionAware, BaseActi
 	private Map<String, Object> session=null;
 	public static List<Channel> channels=null;
 //	private String loggerPath=null;
-	private Logger logger=getLogger();
+	private Logger logger=Logger.getLogger(LoginAction.class);
 	private static int loggerCount=0;
 	private static Opml4channelAction o4cAction=new Opml4channelAction();
 //	public static int TIME_DELAY=3*3600*1000; // one hour -> Milliseconds
@@ -157,16 +157,16 @@ public class LoginAction extends ActionSupport implements SessionAware, BaseActi
 		}
 	}
 	
-	public String toSnatch() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	
-	public Logger getLogger() {
-		// TODO Auto-generated method stub
-		if(logger!=null){
-			return logger;
-		}
-		return Logger.getLogger(LoginAction.class);
-	}
+//	public String toSnatch() {
+//		// TODO Auto-generated method stub
+//		return null;
+//	}
+//	
+//	public Logger getLogger() {
+//		// TODO Auto-generated method stub
+//		if(logger!=null){
+//			return logger;
+//		}
+//		return Logger.getLogger(LoginAction.class);
+//	}
 }

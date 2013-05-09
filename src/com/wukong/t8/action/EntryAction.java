@@ -28,6 +28,7 @@ import com.wukong.t8.pojo.Feed;
 import com.wukong.t8.pojo.Opml4channel;
 import com.wukong.t8.utils.EntryParser;
 import com.wukong.t8.utils.FeedParser;
+import com.wukong.t8.utils.HashCache;
 import com.wukong.t8.utils.Utils;
 
 public class EntryAction extends ActionSupport implements BaseAction {
@@ -104,7 +105,7 @@ public class EntryAction extends ActionSupport implements BaseAction {
 		if(o4c!=null){			
 			List<Entry> entryList=EntryParser.getEntryListByOpmlOutlineXmlUrl(o4c);
 			for(Entry entry:entryList){//System.out.println("==="+entry.getEntryTitle());
-				if(allEntryGuids.add(entry.getEntryGuid())){// i++;
+				if(allEntryGuids.add(HashCache.hashKeyForCache(entry.getEntryGuid()))){// i++;
 					entryDAO.save(entry); //  System.out.println("Ôö¼ÓµÄ");
 				}
 			}
@@ -138,7 +139,7 @@ public class EntryAction extends ActionSupport implements BaseAction {
 	private void initEntrySet(){
 		List<Entry> originalEntries=EntryDAO.getInstance().findAll();
 		for(Entry e:originalEntries){
-			allEntryGuids.add(e.getEntryGuid());
+			allEntryGuids.add(HashCache.hashKeyForCache(e.getEntryGuid()));
 		}
 	}
 	

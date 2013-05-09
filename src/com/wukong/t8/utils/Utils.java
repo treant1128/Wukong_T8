@@ -182,9 +182,9 @@ public class Utils {
 	
 	public static void main(String[] args){
 //		System.out.println(encodeURL("http://news.baidu.com/n?cmd=1&class=taiwan&tn=rss"));
-//		System.out.println(getWebRootPath());
+		System.out.println(getWebRootPath());
 	
-		System.out.println(encodedByUTF8("http://news.baidu.com/n?cmd=7&loc=3996&name=%C9%BD%B6%AB&tn=rss"));
+//		System.out.println(encodedByUTF8("http://news.baidu.com/n?cmd=7&loc=3996&name=%C9%BD%B6%AB&tn=rss"));
 		
 		
 	//	System.out.println(System.getProperty("java.vm.vendor")); 
