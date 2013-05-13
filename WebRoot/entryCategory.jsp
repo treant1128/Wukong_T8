@@ -341,10 +341,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		}
 	</script>   
 	
+  	<script type="text/javascript" src="js/js/jquery.js"></script>
 	<script type="text/javascript">
-			$(document).ready(function(){
-				var sendBtn=$(".btn");
-
+		$(document).ready(function(){
+			var opmlOutlineXmlUrl='<%=session.getAttribute("opmlOutlineXmlUrl")%>';
+			if(opmlOutlineXmlUrl=="-_-!!"){
+				$(".breadcrumb").slideUp("slow");
+				$(".pagination").slideUp("slow");
+			}
+///////////////////////////////////			
+			var sendBtn=$(".btn");
 				sendBtn.click(function(){
 						var myself=$(this);
 						var tr=myself.parent().parent();
@@ -379,9 +385,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						window.frames[0].postMessage(message, '*');
 						//console.log(message);
 				});
-			});
-
-	</script>
+		});
 	
+	</script>
+  
   </body>
 </html>

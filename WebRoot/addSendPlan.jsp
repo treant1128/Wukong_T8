@@ -10,8 +10,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <title>下发 &middot; 提交</title>
     <!-- Bootstrap -->
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
-    <link type="text/css" href="css/custom-theme/jquery-ui-1.10.0.custom.css" rel="stylesheet" />
-
 	<base target="_seft">
 </head>
 
@@ -109,14 +107,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			  <hr>
 
 	    	</div><!--/.fluid-container-->
- 	<script src="js/jquery.min.js"></script>
+
  	<script src="js/jquery.js"></script>
     <script language="javascript" src="datetimepicker_css.js"></script>
 
 	<script type="text/javascript">
 			$(document).ready(function(){
 				window.onmessage = function(event) {
-    				console.log(event.data);
+//    				console.log(event.data);
     				var message=event.data;
     				var title=$("#sendTitle");
     				var url=$("#sendUrl");

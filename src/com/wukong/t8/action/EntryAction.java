@@ -205,6 +205,9 @@ public class EntryAction extends ActionSupport implements BaseAction {
 		if(entries!=null){
 			session.put("entries", entries);
 			session.put("entrySize", entries.size());
+			
+			session.put("opmlOutlineXmlUrl", "-_-!!");
+			
 			logger.info(LoginAction.nickname+"执行了一次时间查询");
 			return "toEntries";
 		}else{

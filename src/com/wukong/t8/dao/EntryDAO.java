@@ -211,19 +211,19 @@ public class EntryDAO extends BaseHibernateDAO {
 	}
 	
 	public List<Entry> getEntryListByProperty(String property,String keyWords, String startTime, String endTime){
-		String hqlStr=null;
+		String hqlStr="";
 		if(startTime==null||endTime==null){
 			hqlStr="from Entry as entry where entry."+property+" like ?";
 		}else{
 			hqlStr="from Entry as entry where entry."+property+" like ?"
 			+" and entry.entryPubDate between '"+startTime+"' and '"+endTime+"'";
 		}
-		
-		return getEntryListByKeyWordsIncludePubDate(hqlStr, keyWords, startTime, endTime);
+		hqlStr+="order by entry.entryPubDate desc";
+		return getEntryListByKeyWordsIncludePubDate(hqlStr, keyWords);
 	}
 	
 	@SuppressWarnings("unchecked")
-	public List<Entry> getEntryListByKeyWordsIncludePubDate(String hqlStr, String keyWords, String startTime, String endTime){
+	public List<Entry> getEntryListByKeyWordsIncludePubDate(String hqlStr, String keyWords){
 		
 		String [] str=keyWords.split(" ");
 		StringBuilder sb=new StringBuilder();
@@ -235,6 +235,8 @@ public class EntryDAO extends BaseHibernateDAO {
 		Session session=getSession();
 		Query query=session.createQuery(hqlStr);
 		query.setString(0, sb.toString());
+		query.setFirstResult(0);
+		query.setMaxResults(1024);
 //		if(startTime==null||endTime==null){
 //			query.setString(1, startTime);
 //			query.setString(2, endTime);

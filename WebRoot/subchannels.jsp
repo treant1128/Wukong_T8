@@ -25,9 +25,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <link href="bootstrap/css/bootstrap.min.css?v2.3.1" rel="stylesheet">
     <link href="bootstrap/css/bootstrap-responsive.min.css?v2.3.1" rel="stylesheet">
     <link href="bootstrap/css/docs.css?v2.3.1" rel="stylesheet">
-    <link href="bootstrap/css/docs-cn.css" rel="stylesheet">
-    <link href="bootstrap/js/google-code-prettify/prettify.css" rel="stylesheet">
-    <link href="bootstrap/css/grumble.min.css"  rel="stylesheet">
+  
+   
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
@@ -245,20 +244,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		}
 	</script>  
 
-    <!-- Le javascript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-
-    <script src="assets/js/jquery.js?v1.9.0"></script>
-    <script src="assets/js/bootstrap.min.js?v2.3.1"></script>
-    
-	<script src="assets/js/holder/holder.js"></script>
-    <script src="assets/js/google-code-prettify/prettify.js"></script>
-
-    <script src="assets/js/application.js?v2.3.1"></script>
-
-    <!-- Analytics
-    ================================================== -->
     <script type="text/javascript">
     var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
     document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F3d8e7fc0de8a2a75f2ca3bfe128e6391' type='text/javascript'%3E%3C/script%3E"));
