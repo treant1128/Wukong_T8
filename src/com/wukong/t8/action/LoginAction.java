@@ -63,7 +63,7 @@ public class LoginAction extends ActionSupport implements SessionAware{
 	
 	@SuppressWarnings("unchecked")
 	public String execute(){
-
+//		System.out.println("UUU="+userName);
 		Utils.initHTMLLogger(logger, Utils.getWebRootPath()+"SnatchLog.html", true, Level.DEBUG);
 		Connection conn  = DBToolkit.getConnection();
 //		if(conn==null){System.out.println("链接失败");}
@@ -83,6 +83,7 @@ public class LoginAction extends ActionSupport implements SessionAware{
 				DESUtils crypt=new DESUtils(key);
 				try {
 					secretKeys = URLEncoder.encode(crypt.encrypt(name+"&"+password+"&sms"), "UTF-8");
+	//				secretKeys="o9goW9fNwdfe9AL%2BxcU%2BH0%2F8gOlMWRi%2F";
 				} catch (UnsupportedEncodingException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -132,7 +133,7 @@ public class LoginAction extends ActionSupport implements SessionAware{
 //				TIME_DELAY=5000;
 				logger.info(nickname+"--第一次登录"+new Date()+",2S后开始抓取");
 				
-				o4cAction.toSnatch();
+				o4cAction.toSnatch();  System.out.println("11111111111122222222222222222233333333333333333");
 			}else {
 				long interval=System.currentTimeMillis()-Long.valueOf(lastLogin);
 				if(loggerCount==0){

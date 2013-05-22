@@ -398,8 +398,10 @@ public class Opml4channelAction extends ActionSupport implements BaseAction {
 //					allEntrySet=null;
 					if(LoginAction.power.contains("w")){
 						return "toWkBg";
+					}else if(LoginAction.power.contains("j")){
+						return "auditJslt";
 					}else{
-						////Waiting
+						
 					}
 					return "toEntries";
 				}
@@ -407,30 +409,6 @@ public class Opml4channelAction extends ActionSupport implements BaseAction {
 		}
 		return ERROR;
 	}
-		
-	/**
-	 * 根据Opml4channel加载对应的Entry的HashSet
-	 * @param o4c
-	 * @return
-	 */
-//	@SuppressWarnings("unchecked")
-//	public Set<Entry> getReferencedEntriesByOpml4channel(Opml4channel o4c){  
-//
-////		if(allEntryList==null){  //被清空后才去findAll
-//			allEntryList=EntryDAO.getInstance().findAll();
-////		}
-//		
-////		logger.fatal("Entry大小大小="+allEntryList.size());
-//		
-//		allEntrySet=new HashSet<Entry>();
-//		for(Entry e: allEntryList){
-//			if(e.getOpml4channel()==o4c){
-//				allEntrySet.add(e);
-//			}
-//		}
-//		allEntryList=null;//清空  下次查询再刷新
-//		return allEntrySet;
-//	}
 		
 	private void init(){
 		

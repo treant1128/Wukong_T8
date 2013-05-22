@@ -78,10 +78,10 @@ public class EntryAction extends ActionSupport implements BaseAction {
 			isFirst=!isFirst;
 		}
 		
-		if(allO4C!=null&&allO4C.size()!=0){
+		if(allO4C!=null&&allO4C.size()!=0){   System.out.println("开始抓取了啊");
 			final Iterator<Opml4channel> iterator=allO4C.iterator();
 			
-			while(iterator.hasNext()){
+			while(iterator.hasNext()){//System.out.println("张迪辅导费1111");
 				executorService2.submit(new Runnable(){
 
 					public void run() {
@@ -90,7 +90,7 @@ public class EntryAction extends ActionSupport implements BaseAction {
 					}
 					
 				});
-			}
+			}   System.out.println("张迪辅导费22222");
 			i++;
 			logger.fatal(new Date()+"抓取次数="+i);
 		}

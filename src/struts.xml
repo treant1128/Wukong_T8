@@ -33,7 +33,7 @@
 		<!-- Action默认执行public String execute() -->
 		<action name="loginAction" class="com.wukong.t8.action.LoginAction">
 			<result name="LoginSuccess">/index.jsp</result>
-			<result name="LoginFailture">/login_failture.jsp</result>
+			<result name="LoginFailture">/common/login_failture.jsp</result>
 			
 			<!-- Interceptor 一般配置在Result之后 -->
 			<interceptor-ref name="myDefaultStack"></interceptor-ref>
@@ -41,7 +41,7 @@
 		
 		<action name="channelAction" class="com.wukong.t8.action.ChannelAction">
 			<result name="toSubChannels">/subchannels.jsp</result>
-			<result name="error">/error.jsp</result>
+			<result name="error">/common/error.jsp</result>
 			<result name="toLogger">/SnatchLog.html</result>
 			
 			<result name="login">/signin.html</result>
@@ -49,9 +49,12 @@
 		
 		<action name="opml4channelAction" class="com.wukong.t8.action.Opml4channelAction">
 			<result name="success">/outcome.jsp</result>
-			<result name="error">/error.jsp</result>
+			<result name="error">/common/error.jsp</result>
 			<result name="toEntries">/entryCategory.jsp</result>
 			<result name="toWkBg">/entryWkBg.jsp</result>
+			
+			<result name="auditJslt">/entryAuditJslt.jsp</result>
+			
 			<result name="setSnatchInterval">/index.jsp</result>
 			
 			<result name="login">/signin.html</result>
@@ -68,9 +71,15 @@
 		<action name="submitAction" class="com.wukong.t8.action.SubmitAction">
 			<result name="success">/submitSuccess.jsp</result>
 			<result name="modifyParamsSuccess">/modifySuccess.jsp</result>
-			<result name="error">/error.jsp</result>
+			<result name="error">/common/error.jsp</result>
 			
 			<result name="login">/signin.html</result>
 		</action>
+		
+		<action name="auditAction" method="apply2Audit" class="com.wukong.t8.action.AuditAction">
+			<result name="success">/auditSuccess.jsp</result>
+			<result name="error">/common/error.jsp</result>
+		</action>
+		
 	</package>
 </struts>    
