@@ -105,7 +105,7 @@ public class EntryAction extends ActionSupport implements BaseAction {
 		if(o4c!=null){			
 			List<Entry> entryList=EntryParser.getEntryListByOpmlOutlineXmlUrl(o4c);
 			for(Entry entry:entryList){//System.out.println("==="+entry.getEntryTitle());
-				if(allEntryGuids.add(HashCache.hashKeyForCache(entry.getEntryGuid()))){// i++;
+				if(allEntryGuids.add(entry.getEntryGuid())){// i++;
 					entryDAO.save(entry); //  System.out.println("Ôö¼ÓµÄ");
 				}
 			}
