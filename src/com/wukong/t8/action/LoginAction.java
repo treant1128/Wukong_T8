@@ -93,7 +93,7 @@ public class LoginAction extends ActionSupport implements SessionAware{
 				}
 				
 				try {
-					nickname=new String(rs.getString("region").getBytes(), "UTF-8")+"-"+name;
+					nickname=new String(rs.getString("region").getBytes(), "GBK")+"-"+name;
 				} catch (UnsupportedEncodingException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
