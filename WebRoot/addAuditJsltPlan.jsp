@@ -353,7 +353,7 @@ table.listTable td{ padding:5px 10px 0 15px; text-align:left; border-top:1px sol
 			
 			var g_dirs=[];
 			var templete="<option></option>";
-			$.get('http://122.192.35.95:8000/getDir', function(data){
+			$.get('http://42.96.157.232:8000/getDir', function(data){
 				g_dirs=eval(data);
 				for(var i=1;i<g_dirs.length;i++){
 					templete+="<option value="+g_dirs[i]+">"+g_dirs[i]+"</option>";
@@ -366,7 +366,7 @@ table.listTable td{ padding:5px 10px 0 15px; text-align:left; border-top:1px sol
 				$("#numDiv").html("");
 				var fp=$("#filePath").val();
 				
-				$.post("http://122.192.35.95:8000/getFiles", 
+				$.post("http://42.96.157.232:8000/getFiles", 
 						{"dirName":fp},
 						function(data){
 
