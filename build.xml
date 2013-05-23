@@ -95,11 +95,6 @@
         <pathelement location="libs/json-lib-2.4-jdk15.jar"/>
         <pathelement location="libs/tomcat-6.0.36-servlet-api.jar"/>
     </path>
-    <path id="run.AuditAction.bootclasspath">
-        <fileset dir="${java.home}/lib" includes="*.jar"/>
-        <fileset dir="${java.home}/lib/ext" includes="*.jar"/>
-        <path refid="Java EE 5 Libraries.libraryclasspath"/>
-    </path>
     <path id="run.EntryAction.bootclasspath">
         <fileset dir="${java.home}/lib" includes="*.jar"/>
         <fileset dir="${java.home}/lib/ext" includes="*.jar"/>
@@ -155,14 +150,6 @@
     <target description="compile project with Eclipse compiler" name="build-eclipse-compiler">
         <property name="build.compiler" value="org.eclipse.jdt.core.JDTCompilerAdapter"/>
         <antcall target="build"/>
-    </target>
-    <target name="AuditAction">
-        <java classname="com.wukong.t8.action.AuditAction" failonerror="true" fork="yes">
-            <classpath refid="Wukong_T8.classpath"/>
-            <bootclasspath>
-                <path refid="run.AuditAction.bootclasspath"/>
-            </bootclasspath>
-        </java>
     </target>
     <target name="EntryAction">
         <java classname="com.wukong.t8.action.EntryAction" failonerror="true" fork="yes">

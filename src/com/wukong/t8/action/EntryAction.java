@@ -105,8 +105,8 @@ public class EntryAction extends ActionSupport implements BaseAction {
 		if(o4c!=null){			
 			List<Entry> entryList=EntryParser.getEntryListByOpmlOutlineXmlUrl(o4c);
 			for(Entry entry:entryList){//System.out.println("==="+entry.getEntryTitle());
-				if(allEntryGuids.add(HashCache.hashKeyForCache(entry.getEntryGuid()))){// i++;
-					entryDAO.save(entry);// System.out.println("增加=="+entry.getEntryTitle());
+				if(allEntryGuids.add((entry.getEntryGuid()))){// i++;
+					entryDAO.save(entry); System.out.println("增加=="+entry.getEntryTitle());
 				}
 			}
 		}
@@ -119,12 +119,12 @@ public class EntryAction extends ActionSupport implements BaseAction {
 		allO4C=new HashSet<Opml4channel>();
 		allEntryGuids=new HashSet<String>();
 
+		Utils.initHTMLLogger(logger, Utils.getWebRootPath()+"SnatchLog.html", true, Level.DEBUG);
+//		o4cAction.mainToSnatch();
+
 		initO4CSet();
 		initEntrySet();
-		
-		Utils.initHTMLLogger(logger, Utils.getWebRootPath()+"SnatchLog.html", true, Level.DEBUG);
-		logger.info("Entry之toSnatch初始化完成, 当前Opml数量="+allO4C.size()+",Entry数量="+allEntryGuids.size());
-//		o4cAction.mainToSnatch();
+		logger.info("Entry之toSnatch初始化完成, 当前内存中有效Opml数量="+allO4C.size()+",Entry数量="+allEntryGuids.size());
 	}
 	
 	@SuppressWarnings("unchecked")
@@ -138,8 +138,14 @@ public class EntryAction extends ActionSupport implements BaseAction {
 	@SuppressWarnings("unchecked")
 	private void initEntrySet(){
 		List<Entry> originalEntries=EntryDAO.getInstance().findAll();
+		final long current=System.currentTimeMillis();
+		final long interval=15*24*3600*1000; 
+		logger.info("start check Entry ...");
+		
 		for(Entry e:originalEntries){
-			allEntryGuids.add(HashCache.hashKeyForCache(e.getEntryGuid()));
+//			if(current-e.getEntryPubDate().getTime()<interval){
+				allEntryGuids.add((e.getEntryGuid()));
+//			}	
 		}
 	}
 	
