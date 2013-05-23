@@ -93,6 +93,7 @@
         <pathelement location="WebRoot/WEB-INF/lib/rome-opml-1.0.jar"/>
         <pathelement location="libs/ezmorph-1.0.6.jar"/>
         <pathelement location="libs/json-lib-2.4-jdk15.jar"/>
+        <pathelement location="libs/tomcat-6.0.36-servlet-api.jar"/>
     </path>
     <path id="run.AuditAction.bootclasspath">
         <fileset dir="${java.home}/lib" includes="*.jar"/>
