@@ -45,6 +45,8 @@ public class EntryAction extends ActionSupport implements BaseAction {
 //	private static Set<String> allFeedFK_URLs=null;
 	private static Set<String> allEntryGuids=null;
 	private Logger logger=getLogger();
+	SimpleDateFormat formater=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+	
 	private static ExecutorService executorService2=Executors.newFixedThreadPool(THREAD_NUMBER, new ThreadFactory(){
 
 		public Thread newThread(Runnable r) {
@@ -78,7 +80,7 @@ public class EntryAction extends ActionSupport implements BaseAction {
 			isFirst=!isFirst;
 		}
 		
-		if(allO4C!=null&&allO4C.size()!=0){   System.out.println("开始抓取了啊");
+		if(allO4C!=null&&allO4C.size()!=0){   logger.info("开始抓取///");
 			final Iterator<Opml4channel> iterator=allO4C.iterator();
 			
 			while(iterator.hasNext()){//System.out.println("张迪辅导费1111");
@@ -90,7 +92,7 @@ public class EntryAction extends ActionSupport implements BaseAction {
 					}
 					
 				});
-			}   System.out.println("张迪辅导费22222");
+			}
 			i++;
 			logger.fatal(new Date()+"抓取次数="+i);
 		}
@@ -106,7 +108,7 @@ public class EntryAction extends ActionSupport implements BaseAction {
 			List<Entry> entryList=EntryParser.getEntryListByOpmlOutlineXmlUrl(o4c);
 			for(Entry entry:entryList){//System.out.println("==="+entry.getEntryTitle());
 				if(allEntryGuids.add((entry.getEntryGuid()))){// i++;
-					entryDAO.save(entry); System.out.println("增加=="+entry.getEntryTitle());
+					entryDAO.save(entry);// System.out.println("增加=="+entry.getEntryTitle());
 				}
 			}
 		}
@@ -124,7 +126,7 @@ public class EntryAction extends ActionSupport implements BaseAction {
 
 		initO4CSet();
 		initEntrySet();
-		logger.info("Entry之toSnatch初始化完成, 当前内存中有效Opml数量="+allO4C.size()+",Entry数量="+allEntryGuids.size());
+		logger.info("Entry之toSnatch初始化完成, 内存中有效Opml数="+allO4C.size()+",7天前Entry数="+allEntryGuids.size());
 	}
 	
 	@SuppressWarnings("unchecked")
@@ -135,17 +137,19 @@ public class EntryAction extends ActionSupport implements BaseAction {
 		}
 	}
 
+	/**
+	 * 隔段时间重启程序 完全抛弃以前的EntrySet中的内容,自认为不会有重复的再出现,从新开始计数去重复
+	 */
 	@SuppressWarnings("unchecked")
 	private void initEntrySet(){
-		List<Entry> originalEntries=EntryDAO.getInstance().findAll();
-		final long current=System.currentTimeMillis();
-		final long interval=15*24*3600*1000; 
+		long last=System.currentTimeMillis()-7*24*3600*1000;  //7days
+		String strLast=formater.format(new Date(last));
+		
+		List<Entry> originalEntries=EntryDAO.getInstance().getIntervalEntries(strLast, formater.format(new Date()));
 		logger.info("start check Entry ...");
 		
 		for(Entry e:originalEntries){
-//			if(current-e.getEntryPubDate().getTime()<interval){
-				allEntryGuids.add((e.getEntryGuid()));
-//			}	
+			allEntryGuids.add((e.getEntryGuid()));
 		}
 	}
 	
@@ -164,16 +168,16 @@ public class EntryAction extends ActionSupport implements BaseAction {
 			String timePicker1=mRequest.getParameter("timePicker1");
 			String timePicker2=mRequest.getParameter("timePicker2");
 			
-			SimpleDateFormat format=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+			
 			if(timePicker1.length()==0&&timePicker2.length()==0){
-				System.out.println("没有选择起始和终结时间----查所有的");
+//				System.out.println("没有选择起始和终结时间----查所有的");
 				entries=EntryDAO.getInstance().getEntryListByProperty(seleFieldValue , property, null, null);
 			}else if(timePicker1.length()==0&&timePicker2.length()>0){
 				try {
-					Date seleDate=format.parse(timePicker2);
+					Date seleDate=formater.parse(timePicker2);
 					Date currDate=new Date();
 					if(seleDate.before(currDate)){
-						entries=EntryDAO.getInstance().getEntryListByProperty(seleFieldValue, property, timePicker2, format.format(currDate));
+						entries=EntryDAO.getInstance().getEntryListByProperty(seleFieldValue, property, timePicker2, formater.format(currDate));
 					}
 				} catch (ParseException e) {
 					// TODO Auto-generated catch block
@@ -181,10 +185,10 @@ public class EntryAction extends ActionSupport implements BaseAction {
 				}
 			}else if(timePicker1.length()>0&&timePicker2.length()==0){
 				try {
-					Date seleDate=format.parse(timePicker1);
+					Date seleDate=formater.parse(timePicker1);
 					Date currDate=new Date();
 					if(seleDate.before(currDate)){
-						entries=EntryDAO.getInstance().getEntryListByProperty(seleFieldValue, property, timePicker1, format.format(currDate));
+						entries=EntryDAO.getInstance().getEntryListByProperty(seleFieldValue, property, timePicker1, formater.format(currDate));
 					}
 				} catch (ParseException e) {
 					// TODO Auto-generated catch block
@@ -192,8 +196,8 @@ public class EntryAction extends ActionSupport implements BaseAction {
 				}
 			}else {
 				try {
-					Date seleDate1=format.parse(timePicker1);
-					Date seleDate2=format.parse(timePicker2);
+					Date seleDate1=formater.parse(timePicker1);
+					Date seleDate2=formater.parse(timePicker2);
 					System.out.println(333);
 					if(seleDate1.before(seleDate2)){
 						entries=EntryDAO.getInstance().getEntryListByProperty(seleFieldValue, property, timePicker1, timePicker2);

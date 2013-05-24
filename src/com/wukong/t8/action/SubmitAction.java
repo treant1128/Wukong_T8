@@ -69,8 +69,8 @@ public class SubmitAction extends ActionSupport {
 			if(submitTaskByPost(TASK_URL_POST, json, "UTF-8")){
 				logSubmitToRepository(guid);
 				return SUCCESS;
-				}
 			}
+		}
 		return ERROR;	
 	}
 	

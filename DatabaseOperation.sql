@@ -94,7 +94,8 @@ region VARCHAR(64) NOT NULL,
 upower VARCHAR(32),
 password VARCHAR(128),
 comment VARCHAR(256)
-);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 
 -----------Insert Data to table operator  -s->submit  a->admin  d->delete  w->wukong
 INSERT INTO operator (name, region, upower, password, comment) VALUES ('admin', 'God', 'a-s', 'admin', '');
@@ -121,6 +122,8 @@ INSERT INTO operator (name, region, upower, password, comment) VALUES ('demo', '
 INSERT INTO operator (name, region, upower, password, comment) VALUES ('w', '索马里', 'w-s', 'w', '');
 
 INSERT INTO operator (name, region, upower, password, comment) VALUES ('anhui', '安徽', 's', 'anhui', '');
+INSERT INTO operator (name, region, upower, password, comment) VALUES ('hejie', '江苏', 'j', 'hejie', '');
+
 
 -------------Drop Table Clause----------------
 --delete tables

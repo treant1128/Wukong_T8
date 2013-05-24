@@ -320,4 +320,14 @@ public class EntryDAO extends BaseHibernateDAO {
 			session.close();
 		}
 	}
+	
+	public List<Entry> getIntervalEntries(String startTime, String endTime){
+		String hql="from Entry as entry where entry.entryPubDate between '"+startTime+"' and '"+endTime+"'";
+		Session session=getSession();
+		Query query=session.createQuery(hql);
+		List<Entry> all=query.list();
+		session.close();
+		return all;
+	}
+	
 }

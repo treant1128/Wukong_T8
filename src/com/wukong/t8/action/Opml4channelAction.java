@@ -147,7 +147,7 @@ public class Opml4channelAction extends ActionSupport implements BaseAction {
 
 		if(initperiodically()&& o4cFuture.isDone()){ //block until retrieve result 
 			logger.info(new Date()+"->去EntryAction->Snatch");
-			entryAction.toSnatch();  System.out.println("+%%%%********");
+			entryAction.toSnatch();//  System.out.println("+%%%%********");
 		}else{
 			errorCount++;
 			logger.error("ErrorCount="+errorCount);
@@ -436,7 +436,7 @@ public class Opml4channelAction extends ActionSupport implements BaseAction {
 	}
 	
 	/**
-	 * 该功能暂时关闭
+	 * 该功能暂时关闭 前段屏蔽...
 	 * @return
 	 */
 	public String setTimeDelay(){

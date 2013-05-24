@@ -19,7 +19,6 @@ import com.opensymphony.xwork2.ActionSupport;
 import com.wukong.t4.common.DBToolkit;
 import com.wukong.t4.common.DESUtils;
 import com.wukong.t8.dao.ChannelDAO;
-import com.wukong.t8.dao.EntryDAO;
 import com.wukong.t8.pojo.Channel;
 import com.wukong.t8.utils.CheckLoginInterceptor;
 import com.wukong.t8.utils.Utils;
@@ -66,7 +65,7 @@ public class LoginAction extends ActionSupport implements SessionAware{
 //		System.out.println("UUU="+userName);
 		Utils.initHTMLLogger(logger, Utils.getWebRootPath()+"SnatchLog.html", true, Level.DEBUG);
 		Connection conn  = DBToolkit.getConnection();
-//		if(conn==null){System.out.println("¡¥Ω” ß∞‹");}
+
 		StringBuffer sql = new StringBuffer("select * from operator where name = '");  //table operator
 		sql.append(userName).append("' and password = '").append(userPassword).append("'");
 		ResultSet rs = DBToolkit.executeQuery(conn, sql.toString());
@@ -93,7 +92,7 @@ public class LoginAction extends ActionSupport implements SessionAware{
 				}
 				
 				try {
-					nickname=new String(rs.getString("region").getBytes(), "GBK")+"-"+name;
+					nickname=new String(rs.getString("region").getBytes("UTF-8"), "GBK")+"-"+name;
 				} catch (UnsupportedEncodingException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -158,16 +157,4 @@ public class LoginAction extends ActionSupport implements SessionAware{
 		}
 	}
 	
-//	public String toSnatch() {
-//		// TODO Auto-generated method stub
-//		return null;
-//	}
-//	
-//	public Logger getLogger() {
-//		// TODO Auto-generated method stub
-//		if(logger!=null){
-//			return logger;
-//		}
-//		return Logger.getLogger(LoginAction.class);
-//	}
 }
