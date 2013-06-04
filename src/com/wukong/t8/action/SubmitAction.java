@@ -12,14 +12,18 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.sql.Timestamp;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Properties;
-
 import javax.servlet.http.HttpServletRequest;
+
+import net.sf.json.JSONObject;
 
 import org.apache.struts2.ServletActionContext;
 
 import com.opensymphony.xwork2.ActionSupport;
+import com.wukong.t4.entitys.UserPreference;
 import com.wukong.t8.dao.EntryDAO;
 import com.wukong.t8.dao.RepositoryDAO;
 import com.wukong.t8.pojo.Entry;
@@ -61,11 +65,26 @@ public class SubmitAction extends ActionSupport {
 				return ERROR;
 			}
 			
-			String[] os=mRequest.getParameterValues("osCheckbox");
-			String[] status=mRequest.getParameterValues("userStatus");
 			String guid=mRequest.getParameter("addSendPlan.sendUrl");
 			
-			String json=composeJSONString(uuid, os, status); //  System.out.println("JSON="+json);
+			String [] iPhone = mRequest.getParameterValues("iPhone");
+			String [] android = mRequest.getParameterValues("android");
+			String [] active = mRequest.getParameterValues("active");
+			String [] inactive = mRequest.getParameterValues("inactive");
+			String [] silent = mRequest.getParameterValues("silent");
+			
+			Map<String, String[]> pMap=new HashMap<String, String[]>();
+			pMap.put("iPhone", iPhone);
+			pMap.put("android", android);
+			pMap.put("active", active);
+			pMap.put("inactive", inactive);
+			pMap.put("silent", silent);
+			
+			String json=composeJSONString(uuid, composeUserPreferenceJSON(pMap));//   System.out.println("JSON="+json);
+			if(json==null||json.length()==0){
+				return ERROR;
+			}
+			
 			if(submitTaskByPost(TASK_URL_POST, json, "UTF-8")){
 				logSubmitToRepository(guid);
 				return SUCCESS;
@@ -99,11 +118,11 @@ public class SubmitAction extends ActionSupport {
 		String title=mRequest.getParameter("addSendPlan.sendTitle");
 		String imgUrl=mRequest.getParameter("modifyTask_imgUrl");
 		String priority=mRequest.getParameter("priority");
-		int p=500;
+		int p=500;  //default priority
 		try{
 			p=Integer.parseInt(priority);
 		}catch(Exception e){
-			
+			p=500;
 		}
 		System.out.println("Title="+title);
 		System.out.println("imgUrl="+imgUrl);
@@ -217,68 +236,14 @@ public class SubmitAction extends ActionSupport {
 		return conn;
 	}
 	
-	private String composeJSONString(String uuid, String[] os, String[] status){
+	private String composeJSONString(String uuid, String userPreference){
 		StringBuffer sb=new StringBuffer();
 		String temp=null;
 		sb.append("{\"uuid\":");
 		sb.append("\""+uuid+"\",");
 		
-		sb.append("\"newTask\":{\"userType\":{\"Android\":");
-		if(os==null||(os!=null&&Arrays.binarySearch(os, "os1")<0)){
-			temp="false";
-		}else{
-			temp="true";
-		}
-		sb.append(temp+",");
-		temp=null;
-		
-//		sb.append("\"iPhone\":");
-		sb.append("\"Iphone\":");
-		if(os==null||(os!=null&&Arrays.binarySearch(os, "os2")<0)){
-			temp="false";
-		}else{
-			temp="true";
-		}
-		sb.append(temp+",");
-		temp=null;
-		
-//		sb.append("\"WP8\":");
-		sb.append("\"Nokia\":");
-		if(os==null||(os!=null&&Arrays.binarySearch(os, "os3")<0)){
-			temp="false";
-		}else{
-			temp="true";
-		}
-		sb.append(temp+",");
-		temp=null;
-		
-		sb.append("\"沉默\":");
-		if(status==null||(status!=null&&Arrays.binarySearch(status, "status1")<0)){
-			temp="false";
-		}else{
-			temp="true";
-		}
-		sb.append(temp+",");
-		temp=null;
-		
-		sb.append("\"活跃\":");
-		if(status==null||(status!=null&&Arrays.binarySearch(status, "status2")<0)){
-			temp="false";
-		}else{
-			temp="true";
-		}
-		sb.append(temp+",");
-		temp=null;
-		
-		sb.append("\"非活跃\":");
-		if(status==null||(status!=null&&Arrays.binarySearch(status, "status3")<0)){
-			temp="false";
-		}else{
-			temp="true";
-		}
-		sb.append(temp+"},");
-		temp=null;
-		
+		sb.append("\"newTask\":{\"userType\":").append(userPreference).append("},");
+	
 		sb.append("\"tHeader\":");
 		sb.append("\""+mRequest.getParameter("addSendPlan.sendTitle")+"\",");
 		
@@ -288,8 +253,13 @@ public class SubmitAction extends ActionSupport {
 		sb.append("\"tDateTime\":");
 		sb.append("\""+mRequest.getParameter("addSendPlan.date")+"\",");
 		
+		temp=mRequest.getParameter("addSendPlan.prio");
+		if(temp.contains("?")){
+			temp="未指定";
+		}
 		sb.append("\"tPriv\":");
-		sb.append("\""+mRequest.getParameter("addSendPlan.prio")+"\",");
+		sb.append("\""+temp+"\",");
+		temp=null;
 		
 		sb.append("\"statu\":{\"audit\":");
 		sb.append("\""+"info\",");
@@ -315,4 +285,63 @@ public class SubmitAction extends ActionSupport {
 		return sb.toString();
 	}
 		
+	public static String composeUserPreferenceJSON(Map<String, String[]> userPreference){
+		if(userPreference!=null && userPreference.size()>0){
+			UserPreference p=new UserPreference(false, false, false, false, false, false, false, false, false, false);
+			String key=null;
+			String[] value=null;
+			for(Map.Entry<String, String[]> entry : userPreference.entrySet()){
+				key=entry.getKey();
+				value=entry.getValue();
+				if(value!=null){
+					Arrays.sort(value);  //must sort 
+					
+					if(key.equals("iPhone")){
+						if(Arrays.binarySearch(value, "3G")>=0){
+							p.setiPhone_3G(true);
+						}
+						if(Arrays.binarySearch(value, "2G")>=0){
+							p.setiPhone_2G(true);
+						}
+					}
+					if(key.equals("android")){
+						if(Arrays.binarySearch(value, "3G")>=0){
+							p.setAndroid_3G(true);
+						}
+						if(Arrays.binarySearch(value, "2G")>=0){
+							p.setAndroid_2G(true);
+						}
+					}
+					if(key.equals("active")){
+						if(Arrays.binarySearch(value, "3G")>=0){
+							p.setActive_3G(true);
+						}
+						if(Arrays.binarySearch(value, "2G")>=0){
+							p.setActive_2G(true);
+						}
+					}
+					if(key.equals("inactive")){
+						if(Arrays.binarySearch(value, "3G")>=0){
+							p.setInactive_3G(true);
+						}
+						if(Arrays.binarySearch(value, "2G")>=0){
+							p.setInactive_2G(true);
+						}
+					}
+					if(entry.getKey().equals("silent")){
+						if(Arrays.binarySearch(value, "3G")>=0){
+							p.setSilent_3G(true);
+						}
+						if(Arrays.binarySearch(value, "2G")>=0){
+							p.setSilent_2G(true);
+						}
+					}
+				}
+			}
+			
+			JSONObject jsonObj=JSONObject.fromObject(p);
+			return jsonObj.toString();
+		}
+		return "";
+	}
 }

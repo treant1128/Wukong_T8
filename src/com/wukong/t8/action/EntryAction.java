@@ -36,7 +36,7 @@ public class EntryAction extends ActionSupport implements BaseAction {
 	private HttpServletRequest mRequest;
 	private List<Entry> entries;
 	private static EntryDAO entryDAO=EntryDAO.getInstance();
-//	public static Opml4channelAction o4cAction=new Opml4channelAction();
+
 	private static int i=0;
 //	private static FeedDAO feedDAO=FeedDAO.getInstance();
 //	private static List<String> allFeedTitle=null;
@@ -122,7 +122,6 @@ public class EntryAction extends ActionSupport implements BaseAction {
 		allEntryGuids=new HashSet<String>();
 
 		Utils.initHTMLLogger(logger, Utils.getWebRootPath()+"SnatchLog.html", true, Level.DEBUG);
-//		o4cAction.mainToSnatch();
 
 		initO4CSet();
 		initEntrySet();
@@ -140,7 +139,6 @@ public class EntryAction extends ActionSupport implements BaseAction {
 	/**
 	 * 隔段时间重启程序 完全抛弃以前的EntrySet中的内容,自认为不会有重复的再出现,从新开始计数去重复
 	 */
-	@SuppressWarnings("unchecked")
 	private void initEntrySet(){
 		long last=System.currentTimeMillis()-7*24*3600*1000;  //7days
 		String strLast=formater.format(new Date(last));

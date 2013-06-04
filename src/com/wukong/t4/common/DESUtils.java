@@ -66,14 +66,16 @@ import sun.misc.BASE64Encoder;
             byte[] b = decoder.decodeBuffer(s);  
             return b;  
         }  
-      
+      //http://t4.wukong.com/xjlt/login.do?input=o9goW9fNwdfe9AL%2BxcU%2BH0%2F8gOlMWRi%2F
         public static void main(String[] args) throws Exception { 
             String key = "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCAAzp8YDDp7y3OmWeoobO6YuR3DF1gougKsY3RulBwlTQqQz5HuqxgkDDVNUFlfExWMe5mEr0qdZ1n/vLepLcT6thAHRadi+CfhypT10B0HDblyB7W6OIREZEQErrOSLcc9Knjn3tL41yxemVp0XK0C3MG6q1ikwWQXNLW6nPXaQIDAQAB";  
-            String input = "admin&wk@9527&sms"; // admin&123456&sms
+   //         String input = "admin&wk@9527&sms"; // admin&123456&sms
+            String input = "luxi&128486&sms";
+            
             DESUtils crypt = new DESUtils(key);  
             System.out.println("Encode:" + crypt.encrypt(input));  
             System.out.println("Decode:" + crypt.decrypt(crypt.encrypt(input))); 
-            System.out.println("EEEEEEEEEEE="+URLEncoder.encode(crypt.encrypt("suqiang&s123456q&sms"),"UTF-8"));
-            System.out.println("DDDD="+crypt.decrypt(URLDecoder.decode("o9goW9fNwdfe9AL%2BxcU%2BH0%2F8gOlMWRi%2F")));
+            System.out.println("URLEncoder="+URLEncoder.encode(crypt.encrypt(input),"UTF-8"));
+   //         System.out.println("DDDD="+crypt.decrypt(URLDecoder.decode("o9goW9fNwdfe9AL%2BxcU%2BH0%2F8gOlMWRi%2F")));
         }  
     }  

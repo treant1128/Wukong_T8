@@ -31,9 +31,8 @@ public class LoginAction extends ActionSupport implements SessionAware{
 	private Channel channel=null;
 	private Map<String, Object> session=null;
 	public static List<Channel> channels=null;
-//	private String loggerPath=null;
-	private Logger logger=Logger.getLogger(LoginAction.class);
-	private static int loggerCount=0;
+
+	private Logger logger=null;
 	private static Opml4channelAction o4cAction=new Opml4channelAction();
 //	public static int TIME_DELAY=3*3600*1000; // one hour -> Milliseconds
 	
@@ -62,13 +61,15 @@ public class LoginAction extends ActionSupport implements SessionAware{
 	
 	@SuppressWarnings("unchecked")
 	public String execute(){
-//		System.out.println("UUU="+userName);
-		Utils.initHTMLLogger(logger, Utils.getWebRootPath()+"SnatchLog.html", true, Level.DEBUG);
+		logger=Logger.getLogger(LoginAction.class);
+		String rootPath=Utils.getWebRootPath();
+		Utils.initHTMLLogger(logger, rootPath+"SnatchLog.html", true, Level.DEBUG);
 		Connection conn  = DBToolkit.getConnection();
 
 		StringBuffer sql = new StringBuffer("select * from operator where name = '");  //table operator
 		sql.append(userName).append("' and password = '").append(userPassword).append("'");
 		ResultSet rs = DBToolkit.executeQuery(conn, sql.toString());
+		
 		try {
 			if(rs.next()){
 				String name=rs.getString("name");
@@ -91,18 +92,13 @@ public class LoginAction extends ActionSupport implements SessionAware{
 					e.printStackTrace();
 				}
 				
-				try {
-					nickname=new String(rs.getString("region").getBytes("UTF-8"), "GBK")+"-"+name;
-				} catch (UnsupportedEncodingException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}    //field-->region&&name
+				nickname=rs.getString("region")+"-"+name;
 				session.put(CheckLoginInterceptor.USER_SESSION_KEY, nickname);
 				//加载频道列表
 				channels=ChannelDAO.getInstance().findAll();
 				session.put("channels", channels);
 				
-				initTimeDelay();
+				initTimeDelay(rootPath+"lastLoginTime.bak", rootPath+"SnatchLog.html");
 			}else{
 				return "LoginFailture";	
 			}
@@ -113,7 +109,6 @@ public class LoginAction extends ActionSupport implements SessionAware{
 			DBToolkit.closeConnection(conn, null, rs);
 		}
 		
-		loggerCount=0;
 		return "LoginSuccess";
 	}
 	
@@ -122,25 +117,29 @@ public class LoginAction extends ActionSupport implements SessionAware{
 		this.session=session;
 	}
 	
-	private void initTimeDelay(){
-		String bakPath=Utils.getWebRootPath()+"lastLoginTime.bak";
+	private synchronized void initTimeDelay(String bakPath, String logPath){
 		FileWriter writer=null;
 		String lastLogin=Utils.getLocalBak(bakPath);
 		try {
-			writer = new FileWriter(bakPath, false);  		//override
 			if(lastLogin==null||lastLogin.length()==0){     //第一次部署时bak文件根本不存在
-//				TIME_DELAY=5000;
-				logger.info(nickname+"--第一次登录"+new Date()+",2S后开始抓取");
-				
-				o4cAction.toSnatch();  System.out.println("11111111111122222222222222222233333333333333333");
+				logger.info(nickname+"--第一次登录"+new Date()+", 2S后开始抓取");
+				o4cAction.toSnatch();
 			}else {
 				long interval=System.currentTimeMillis()-Long.valueOf(lastLogin);
-				if(loggerCount==0){
-					logger.info(nickname+"--距上一位访问间隔"+interval+"毫秒");
-					loggerCount++;
-				}
+				writer=new FileWriter(logPath, true);
+				StringBuffer sb=new StringBuffer();
+				sb.append("<tr bgcolor='#CCAA88'>");
+				sb.append("<td>").append(new Date()).append("</td>");
+				sb.append("<td>").append(Thread.currentThread().getName()).append("</td>");
+				sb.append("<td>INFO</td>");
+				sb.append("<td>Login-Log</td>");
+				sb.append("<td>").append(nickname+"--距上一位访问者"+interval+"毫秒").append("</td>");
+				sb.append("<tr>");
+				writer.write(sb.toString());
+				writer.flush();
 			}
-				
+			
+			writer = new FileWriter(bakPath, false);  		//override bak time
 			writer.write(Long.toString(System.currentTimeMillis()));
 		} catch (IOException e1) {
 			// TODO Auto-generated catch block

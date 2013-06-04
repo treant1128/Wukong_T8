@@ -59,18 +59,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		    height: 35px;
 		}
 		#myModal{
-			width:1000px;
-			height: 800px;
+			width:900px;
+			height: 750px;
 			margin:0px 0px 0px -450px;
 		}
-		#myModal .modal-body{
-			max-height: 980px;
+		.modal-body{
+			max-height: 700px;
+			margin-bottom:20px;
 		}
 		#addTaskFrame{
 			margin-left: 10px;
 			margin-right: 10px;
-			width: 900px;
-			height: 700px;
+			width: 750px;
+			height: 600px;
 		}
     </style>
 
@@ -187,7 +188,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					  			<td><h3>编 号</h3></td>
 					  			<td><h3>标 题</h3></td>
 					  			<td><h3>链 接</h3></td>
-					  	<!-- 		<td><h3>分 类</h3></td>   -->
+					  	<!-- 	<td><h3>分 类</h3></td>   -->
 					  	  		<td><h3>来 自</h3></td>  
 					  			<td><h3>时 间</h3></td>
 					  			<td><h3>操 作</h3></td>
@@ -239,15 +240,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
    	<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
    		<div class="modal-header">
    			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
-   			<h3 id="myModalLabel">信息下发</h3>
+   			<h3 id="myModalLabel">提交审核</h3>
    		</div>
    		<div class="modal-body">
-   			<iframe id="addTaskFrame" frameBorder="0" width="100%" height="100%" src="addSendPlan.jsp"></iframe>
+   			<iframe id="addTaskFrame" frameBorder="0"  style="margin-left: 55px; margin-top: 20px" width="100%" height="100%" src="addSendPlan.jsp"></iframe>
    		</div>
    		
    	</div>  
    
-   	
 	    <div id="footer-spacer"></div>   
 	</div>
 	
