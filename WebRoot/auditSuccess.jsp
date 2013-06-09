@@ -39,11 +39,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   		
   		if(isIFrameSelf()){
  // 		self.opener.location.reload(); 
-  		parent.location.reload(); 
+  			parent.location.reload(); 
  // 		window.location.href="entryAuditJslt.jsp";
   		
   		}
   	}
+  	
   	window.setTimeout("toHome()", 1500);
   </script>
   

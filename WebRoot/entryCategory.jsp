@@ -238,6 +238,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</div>	
    	 
    	<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+   		
    		<div class="modal-header">
    			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
    			<h3 id="myModalLabel">Ã·Ωª…Û∫À</h3>
@@ -385,6 +386,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						window.frames[0].postMessage(message, '*');
 						//console.log(message);
 				});
+				
+				
+				
+//			window.onmessage = function(event) {
+//				var task=event.data;
+//				console.log(task);
+//				if(task){
+//					$('#myModal').modal('hide');
+//				}//End of if	
+//			};  //End of OnMessage
 		});
 	
 	</script>

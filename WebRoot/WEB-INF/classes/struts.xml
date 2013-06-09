@@ -79,6 +79,8 @@
 		<action name="auditAction" method="apply2Audit" class="com.wukong.t8.action.AuditAction">
 			<result name="success">/auditSuccess.jsp</result>
 			<result name="error">/auditFail.jsp</result>
+			
+			<result name="login">/signin.html</result>
 		</action>
 		
 	</package>

@@ -242,7 +242,7 @@ public class SubmitAction extends ActionSupport {
 		sb.append("{\"uuid\":");
 		sb.append("\""+uuid+"\",");
 		
-		sb.append("\"newTask\":{\"userType\":").append(userPreference).append("},");
+		sb.append("\"newTask\":{\"userType\":").append(userPreference).append(",");
 	
 		sb.append("\"tHeader\":");
 		sb.append("\""+mRequest.getParameter("addSendPlan.sendTitle")+"\",");
@@ -253,7 +253,7 @@ public class SubmitAction extends ActionSupport {
 		sb.append("\"tDateTime\":");
 		sb.append("\""+mRequest.getParameter("addSendPlan.date")+"\",");
 		
-		temp=mRequest.getParameter("addSendPlan.prio");
+		temp=mRequest.getParameter("addSendPlan.prio");   System.out.println("Temp===="+temp);
 		if(temp.contains("?")){
 			temp="未指定";
 		}
@@ -314,26 +314,26 @@ public class SubmitAction extends ActionSupport {
 					}
 					if(key.equals("active")){
 						if(Arrays.binarySearch(value, "3G")>=0){
-							p.setActive_3G(true);
+							p.set活跃_3G(true);
 						}
 						if(Arrays.binarySearch(value, "2G")>=0){
-							p.setActive_2G(true);
+							p.set活跃_2G(true);
 						}
 					}
 					if(key.equals("inactive")){
 						if(Arrays.binarySearch(value, "3G")>=0){
-							p.setInactive_3G(true);
+							p.set非活跃_3G(true);
 						}
 						if(Arrays.binarySearch(value, "2G")>=0){
-							p.setInactive_2G(true);
+							p.set非活跃_2G(true);
 						}
 					}
 					if(entry.getKey().equals("silent")){
 						if(Arrays.binarySearch(value, "3G")>=0){
-							p.setSilent_3G(true);
+							p.set沉默_3G(true);
 						}
 						if(Arrays.binarySearch(value, "2G")>=0){
-							p.setSilent_2G(true);
+							p.set沉默_2G(true);
 						}
 					}
 				}

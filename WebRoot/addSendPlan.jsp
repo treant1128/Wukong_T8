@@ -34,7 +34,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
  
 	<div class="container-fluid">
 	    
-	<form name="submitForm" action="submitAction!toSubmit" method="post" style="width: 100%;height: 100%">
+	<form id="submitForm" action="submitAction!toSubmit" method="post" style="width: 100%;height: 100%">
 			<!-- Main content Stared-->
 						<div class="control-group">
 							<h4>用户属性&nbsp;&gt;&gt;</h4>
@@ -131,7 +131,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						  						  							  							  
 						  <div class="control-group">
 						    <div class="controls">
-						      <input type="submit" class="btn btn-danger btn-large" value="确定"></input>
+								<input type="button" name="button_submit" id="button_submit" class="btn btn-danger btn-large" value="确定"></input>
 						    </div>
 						  </div>
 
@@ -153,6 +153,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     					title.val(message.title);
     					url.val(message.url);
 				};
+				
+				
+				$("#button_submit").click(function(){
+//					window.parent.postMessage("Treant", '*');
+					$("#submitForm").submit();
+				});
 			});
 	</script>
 

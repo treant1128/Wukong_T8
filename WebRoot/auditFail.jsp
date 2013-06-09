@@ -44,7 +44,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   		
   		}
   	}
-  	window.setTimeout("toHome()", 5500);
+  	window.setTimeout("toHome()", 3500);
   </script>
   
   	

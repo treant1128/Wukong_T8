@@ -237,6 +237,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</div>	
    	 
    	<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+   		
    		<div class="modal-header">
    			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
    			<h3 id="myModalLabel">Ω≠À’…Û∫À</h3>
@@ -244,7 +245,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
    		<div class="modal-body">
    			<iframe id="addTaskFrame" frameBorder="0" width="100%" height="100%" src="addAuditJsltPlan.jsp"></iframe>
    		</div>
-   		
+   	
    	</div>  
    
    	

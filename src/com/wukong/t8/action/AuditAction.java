@@ -2,7 +2,6 @@ package com.wukong.t8.action;
 
 import java.io.IOException;
 import java.io.OutputStream;
-import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.ProtocolException;
@@ -73,7 +72,7 @@ public class AuditAction extends ActionSupport {
 		System.out.println("JSON="+json);
 		if(submitTaskByPost(url, json, "UTF-8")){
 	//		logSubmitToRepository(guid);  
-			System.out.println("OOOKKKOOOKKK");
+	//		System.out.println("OOOKKKOOOKKK");
 			return SUCCESS;
 			}
 		
@@ -210,7 +209,7 @@ public class AuditAction extends ActionSupport {
 				stream.write(b);
 				stream.flush();
 				
-				System.out.println("Post×´Ì¬Âë="+conn.getResponseCode());
+//				System.out.println("Post×´Ì¬Âë="+conn.getResponseCode());
 				if(conn.getResponseCode()==HttpURLConnection.HTTP_OK){
 					return true;
 				}

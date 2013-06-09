@@ -244,9 +244,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
    	</div>  
    
    	
-  
-   	
-   	
 	    <div id="footer-spacer"></div>   
 	</div>
 	

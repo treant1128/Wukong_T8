@@ -37,8 +37,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   	
   	function toHome(){
   		
-  		if(!isIFrameSelf()){
-  			window.location.href="entryWkBg.jsp";
+  		if(isIFrameSelf()){
+  			parent.location.reload();
   		}
   	}
   	window.setTimeout("toHome()", 2000);

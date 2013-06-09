@@ -36,11 +36,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   	}
   	
   	function toHome(){
-  		
+  	//	alert("reload11");
   		if(!isIFrameSelf()){
-  			window.location.href="entryCategory.jsp";
+  		window.close();
+ // 			parent.location.reload(); 
   		}
   	}
+  	
   	window.setTimeout("toHome()", 1500);
   </script>
   
